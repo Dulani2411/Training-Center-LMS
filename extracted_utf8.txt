@@ -1,0 +1,677 @@
+﻿About Us - Ceylon Petroleum Corporation Sapugaskanda Refinery Training Center
+Established in 1967 during the construction of the Sapugaskanda Refinery, the Ceylon Petroleum Corporation (CPC) Sapugaskanda Refinery Training Center has been a cornerstone of technical excellence in Sri LankaÆs petroleum industry. Founded to train skilled professionals for the safe and reliable commissioning and operation of the refinery, the center has evolved into a premier institution for developing highly competent technicians for both local and global energy sectors.
+Since its inception, the Training Center has maintained continuous training cycles, beginning with the Shell commissioning team in 1969. In 1978, it partnered with the National Apprentice Board (now the National Apprentice and Industrial Training Authority, NAITA) to offer a rigorous four-year training program, awarding craftsmen certificates to successful trainees. Over the decades, the center has trained numerous groups of engineering professionals, many of whom have secured opportunities in the international petroleum industry.
+Adapting to global standards, the Training Center embraced the National Vocational Qualification (NVQ) framework introduced in Sri Lanka in 2005, followed by the Sri Lanka Qualifications Framework (SLQF) in 2015. Recognizing the need for internationally accredited qualifications, the center collaborated with NAITA and the Tertiary and Vocational Education Commission (TVEC) to develop and validate NVQ Level 5 curricula for eight critical technical trades: Refinery Operation Technician, Refinery Engineering Technician (Mechanical, Electrical, Instrument), Refinery Laboratory Technician, NDT Technician, 6G Welder, and High Pressure Industrial Boiler Operator. These curricula, endorsed by TVEC as national standards, are designed to meet the demands of both local and international petroleum, oil, gas, and energy sectors.
+With a legacy of over five decades, the CPC Sapugaskanda Refinery Training Center remains committed to fostering technical expertise, ensuring safe and efficient refinery operations, and empowering skilled professionals to excel in the global energy industry.
+Vision
+To be the premier global hub for empowering technicians in the oil and gas industry with cutting-edge skills, fostering innovation, safety, and operational excellence.
+Mission
+Enhancing Technical Expertise: To provide comprehensive, hands-on training programs that equip technicians with the essential skills to meet the evolving demands of ;the oil and gas sector.
+Promoting Safety Standards: To instill a strong culture of safety and adherence to industry regulations through specialized training.
+Fostering Career Growth: To support technicians in achieving professional growth by offering globally recognized certifications and skill enhancement opportunities.
+Innovative Learning Solutions: To utilize advanced technologies, simulations, and practical methodologies to ensure effective and engaging learning experiences
+Sustainability and Excellence: To contribute to a sustainable energy future by promoting environmentally responsible practices and delivering excellence in workforce readiness.
+Refinery Training Center û Sapugaskanda
+National Competency Standards & Curricula for Oil & Gas Technician Trades
+NVQ Level 5 û National Certificate Programmes
+Foreword
+The Sapugaskanda Refinery, established in 1969, stands as Sri Lanka's single largest oil refinery, fulfilling approximately 40% of the nation's petroleum-related product demands. For over five decades, the Refinery Training Center has been the cornerstone of technical workforce development for the petroleum industry in Sri Lanka.
+This brochure presents the newly developed National Competency Standards (NCS) and Competency-Based Training (CBT) Curricula for eight specialized technician trades, developed in collaboration with the National Apprentice & Industrial Training Authority (NAITA) and endorsed by the Tertiary & Vocational Education Commission (TVEC). These qualifications, offered at NVQ Level 5, represent a landmark achievement in aligning Sri Lanka's refinery training with national and international vocational qualification frameworks.
+The curricula are designed to produce world-class, multitasking technicians capable of meeting the demands of both the domestic petroleum sector and the international oil and gas industry.
+Objectives
+ Skilled Technician Training for the Oil and Gas Industry
+Develop Technical Proficiency in Equipment Operation and MaintenanceEquip trainees with the skills to operate, maintain, and troubleshoot critical oil and gas equipment, including pumps, compressors, valves, heat exchangers, and instrumentation systems, to ensure operational efficiency and reliability.
+Master Safety Standards and Regulatory ComplianceEnsure trainees understand and adhere to industry safety standards (e.g., OSHA, API, ASTM ) and site-specific protocols, including Lockout/Tag out (LOTO), confined space entry, hazard communication, and emergency response procedures, to maintain a safe working environment.
+Enhance Process Technology KnowledgeProvide comprehensive understanding of oil and gas processes, such as crude oil refining, gas processing, and petrochemical production, enabling technicians to monitor and optimize process parameters like flow, pressure, and temperature.
+Build Mechanical, Electrical and Instrumentation / Control System ExpertiseTrain technicians to install, calibrate, and maintain instrumentation and control systems, including Distributed Control Systems (DCS) and Programmable Logic Controllers (PLC), to support automated and efficient operations.
+Foster Troubleshooting and Problem-Solving SkillsDevelop the ability to diagnose and resolve mechanical, electrical, and process-related issues through hands-on training and simulations, minimizing downtime and ensuring operational continuity.
+Promote Environmental ResponsibilityEducate trainees on environmental regulations and best practices for minimizing emissions, managing waste, and preventing spills, ensuring compliance with environmental standards and sustainable operations.
+Cultivate Teamwork and Communication SkillsEnhance traineesÆ ability to collaborate effectively with operators, engineers, and supervisors, and communicate technical information clearly, including during shift handovers and emergency situations.
+Prepare for Industry CertificationsEnable trainees to achieve relevant to validate their skills and meet industry and employer requirements.
+Develop Adaptability to Shift Work and High-Pressure Hazardous EnvironmentsTrain technicians to perform effectively under demanding conditions, including 12-hour rotating shifts, high-pressure situations, and emergency response scenarios, ensuring resilience and reliability.
+Encourage Continuous Learning and Career DevelopmentFoster a mindset of lifelong learning by exposing trainees to emerging technologies, industry trends, and opportunities for career advancement, such as specialization in advanced instrumentation or supervisory roles.
+Contents
+Page
+1. About the Refinery Training Center
+1
+2. The National Vocational Qualification (NVQ) Framework
+2
+3. Qualification Trades Offered
+3
+4. Refinery Operation Technician
+4
+5. Refinery Engineering Technician (Mechanical)
+6
+6. Refinery Engineering Technician (Electrical)
+8
+7. Refinery Engineering Technician (Instrument)
+10
+8. Other Technician Trades
+12
+9. Training & Recruitment Process
+13
+10. Career Pathways & Opportunities
+14
+11. Contact Information
+15
+1. About the Refinery Training Center
+A Legacy of Excellence Since 1967
+The Refinery Training Center was established during the construction period of the Sapugaskanda Refinery in 1967. Its primary mandate was to train the required employees to commission the refinery and maintain continuous training cycles, which commenced in 1969 with the Shell commissioning team.
+Evolution of Training
+1978: Recruitment of technical trainees through the National Apprentice Board (NAB) began. Trainees who successfully completed four years of training in various technical sections were issued craftsman certificates by the National Apprentice Board (now NAITA).
+1990s: The international qualification framework (IQF) was introduced by developed countries, providing access to qualifications and facilitating movement between education, training, and the labor market.
+2005: Sri Lanka introduced the National Vocational Qualification (NVQ) frameworkùa competency-based system with seven levels focusing on practical skills and knowledge for specific employment positions.
+2015: The Sri Lanka Qualifications Framework (SLQF) was introduced, integrating all national and international qualification frameworks for verification purposes.
+2016: Most Middle Eastern and European petroleum and petrochemical industries upgraded their qualification requirements, making internationally accepted certificates essential for employment.
+A New Chapter
+The Refinery Training Center has now developed and validated National Competency Standards and Curricula for eight technical trades, endorsed by TVEC as national documents. These curricula enable
+trainees to train under new National Competency Standards (NCS) and receive internationally recognized NVQ Level 5 qualifications.
+2. The National Vocational Qualification (NVQ) Framework
+What is NVQ?
+The National Vocational Qualification (NVQ) Framework is a seven-level qualification system that serves as Sri Lanka's national benchmark for quality-assured technical and vocational education and training (TVET). It provides nationally and internationally recognized certification for individuals seeking employment and professional pursuits.
+NVQ Level 5 û Advanced Technical & Supervisory Skills
+NVQ Level 5 qualifications focus on advanced technical and supervisory competencies, enabling individuals to oversee operations, make strategic decisions, and drive organizational growth. At this level, candidates demonstrate:
+Advanced practical skills in specialized technical areas
+Supervisory and management capabilities
+Ability to work independently and make informed decisions
+Comprehensive understanding of industry standards and safety protocols
+Integration with SLQF
+The NVQ Framework integrates with the Sri Lanka Qualifications Framework (SLQF), allowing for flexible pathways between vocational and academic qualifications. NVQ certifications are respected by employers and offer pathways to further education, including potential credit transfers into the SLQF academic framework.
+Key Bodies
+Organization
+Role
+TVECá(Tertiary & Vocational Education Commission)
+Establishes and maintains the NVQ Framework; endorses national competency standards and curricula
+NAITAá(National Apprentice & Industrial Training Authority)
+Sole public body for industry-based apprentice training; conducts monitoring, evaluation, and assessment
+3. Qualification Trades Offered
+The Refinery Training Center offers NVQ Level 5 National Certificate programs in the following eight technical trades:
+No.
+Trade
+Type
+1
+Refinery Operation Technician
+Multitasking
+2
+Refinery Engineering Technician (Mechanical)
+Multitasking
+3
+Refinery Engineering Technician (Electrical)
+Multitasking
+4
+Refinery Engineering Technician (Instrument)
+Multitasking
+5
+Refinery Laboratory Analyst
+Specialized
+6
+Industrial Boiler Operator (High Pressure)
+Multitasking
+7
+Oil and Gas Plant Inspection Technology
+Multitasking
+8
+6-G Industrial Welder
+Multitasking
+All curricula have been developed in consultation with industry experts from the Ceylon Petroleum Corporation (CPC) Refinery at Sapugaskanda and endorsed by TVEC.
+4. Refinery Operation Technician
+National Certificate û NVQ Level 5
+Competency Standard Code:áC11S003 |áFirst Publication:áMay 2025
+Occupational Definition
+A Refinery Operation Technician carries out refinery operations in the oil and gas industry according to industrial standards while ensuring occupational health and safety guidelines are followed.
+Key Responsibilities
+Record plant operating data at specified times
+Check and ensure standby equipment for emergency requirements
+Carry out control panel operations
+Monitor and maintain all rotating and process equipment
+Prepare process chemicals and maintain chemical levels
+Monitor and adjust chemical injection rates
+Replace or adjust burners in process heaters
+Prepare plant equipment for maintenance handover
+Perform recommissioning of equipment after maintenance
+Carry out sampling activities
+Report unsafe conditions and emergency situations
+Adhere to occupational health, safety, and environmental protection guidelines
+Career Progression Paths
+Senior Operation Technician / Senior Operator
+Assistant General Shift Superintendent / Fire Training Officer
+General Shift Superintendent / Training Officer / Safety Superintendent / Tank Farm Superintendent
+Qualification Packaging û 10 Units
+Core Units (6):
+Code
+Unit
+U01
+Perform Process Area Operations
+U02
+Perform Oil Movement Operations
+U03
+Perform Power Plant, Utility & Water Treatment Plant Operations
+U04
+Perform Non-Routine Refinery Operations & Maintenance Activities
+U05
+Manage Process and Operation Emergencies
+U06
+Perform Control System Operations
+Basic Units (4):
+Code
+Unit
+BU01
+Practice Workplace Communication and Interpersonal Relations
+BU02
+Apply Occupational Literacy and Numeracy
+BU03
+Work in Teams
+BU04
+Practice Occupational Health and Safety Procedures in a Workplace
+Qualification Code:áU01+U02+U03+U04+U05+U06+BU01+BU02+BU03+BU04 û C11S003Q1L5
+Prerequisite:áGCE (A/L) Examination in Science Stream with minimum 3 passes in one sitting
+Key Competency Areas
+Area
+Activities
+Process Area Operations
+Column and overhead operations; vessel operations; pump and compressor operations; furnace operations; reactor circuit operations; fuel gas/fuel oil systems; blowdown and flare systems; nitrogen and hydrogen systems
+Oil Movement Operations
+Tank farm operations; pipeline operations and inspections; product blending; LPG and Bitumen storage; bowser filling; custody transfer
+Utility Section
+Power plant operations; water treatment; cooling water systems; compressed air and instrument air systems; steam generation and distribution
+Non-Routine Operations
+Start-up and shutdown procedures; catalyst regeneration; decoking; acid cleaning; isolation and spading; commissioning
+Control Systems
+DCS operations; SCADA operations; PLC and Delta V transmitters; ESD system verification
+Training Curriculum û 20 Modules (1,180 Hours)
+Module
+Title
+Hours
+M01
+Introduction to Petroleum/Petrochemical Industry
+24
+M02
+Fundamentals of Mathematics
+27
+M03
+Chemistry for Petrochemical Industry
+100
+M04
+Physics for Petrochemical Industry
+100
+M05
+Regulatory Compliance and Quality Control
+50
+M06
+Information Systems and Computer Literacy
+48
+M07
+Process Fundamentals and Operations
+84
+M08
+Tank Farm Operations
+100
+M09
+Effluent Management
+60
+M10
+Bitumen/LPG Storage and Distribution
+45
+M11
+Refinery Power Generation
+66
+M12
+Steam Generation and Utility Operations
+84
+M13
+Water Treatment
+60
+M14
+Non-Routine Refinery Operations
+50
+M15
+Refinery Maintenance and Reliability
+45
+M16
+Process Optimization and Control Systems
+45
+BM01
+Communication Skills for Workplace
+18
+BM02
+Language Literacy û English
+120
+BM03
+Team Work
+12
+BM04
+Occupational Safety, Health and Environmental Aspects
+42
+5. Refinery Engineering Technician (Mechanical)
+National Certificate û NVQ Level 5
+Competency Standard Code:áC11T004 |áFirst Publication:áJune 2025
+Occupational Definition
+A Refinery Engineering Technician (Mechanical) performs fabrication, installation, repairing, and maintenance works of refinery mechanical engineering jobs according to state regulations, organizational procedures, industrial standards, and health and safety guidelines.
+Key Responsibilities
+Maintain process and utility pipelines in site
+Maintain heat exchangers and finned coolers in site
+Maintain furnaces, process columns, pressure vessels, and reactors
+Maintain boilers and steam systems
+Maintain structural items, stacks, and process storage tanks
+Maintain fresh water, fire water, effluent, and flare systems
+Maintain and fabricate stationary equipment in workshop
+Maintain pumps, compressors, steam turbines, fans, gear boxes
+Maintain diesel and petrol engines
+Maintain pneumatic & hydraulic tools & equipment
+Assist in refinery mechanical projects planning and implementation
+Career Progression Paths
+Refinery Senior Mechanical Engineering Technician
+Mechanical Superintendent
+Mechanical Engineering Technician (Petrochemical & Energy Industry)
+Mechanical Engineering Technician (Oil & Gas)
+Qualification Packaging û 22 Units
+Core Units (18):
+Code
+Unit
+U01
+Perform Maintenance of Process and Utility Pipe Lines in Site
+U02
+Perform Maintenance of Heat Exchanger and Finned Coolers in Site
+U03
+Perform Maintenance of Furnace in Site
+U04
+Perform Maintenance of Process Columns, Pressure Vessels and Reactors
+U05
+Perform Maintenance of Boiler and Steam System in Site
+U06
+Perform Maintenance of Structural Items and Stacks in Site
+U07
+Perform Maintenance of Process Storage Tank in Site
+U08
+Perform Maintenance of Fresh Water, Fire Water, Effluent & Waste Water and Flare Systems
+U09
+Perform Maintenance and Fabrication of Stationary Equipment in Workshop Area
+U10
+Perform Maintenance of Pumps
+U11
+Perform Maintenance of Process Gas Compressors and Air Compressors
+U12
+Perform Maintenance of Steam Turbine
+U13
+Perform Maintenance of Fans and Mixtures
+U14
+Perform Maintenance of Industrial Gear Boxes
+U15
+Perform Maintenance of Diesel and Petrol Engines
+U16
+Perform Maintenance of Pneumatic & Hydraulic Tools & Equipment
+U17
+Perform Maintenance of Refinery Miscellaneous Equipment
+U18
+Provide Assistance to Refinery Mechanical Projects Planning and Implementation
+Basic Units (4):áBU01, BU02, BU03, BU04 (as listed on page 4)
+Qualification Code:áU01+U02+...+U18+BU01+BU02+BU03+BU04 û C11T004Q1L5
+Prerequisites:áGCE (A/L) Science Stream with 3 passes OR NVQ Level 4 with 5 years oil/gas industry experience
+Training Curriculum û 26 Modules (1,529 Hours)
+Module
+Title
+Hours
+M01
+Introduction to Refinery and Petrochemical Industry
+75
+M02
+Information Systems and Computer Literacy
+65
+M03
+Workshop Practice
+150
+M04
+Engineering Drawings
+75
+M05
+Fundamentals of Welding
+40
+M06
+Fundamentals of Refinery Materials, Damage Mechanism and Testing
+50
+M07
+Refinery Industry Regulations and Standards
+12
+M08
+Oil and Gas Industry Pipe Lines
+75
+M09
+Industrial Valves
+60
+M10
+Heat Exchanger and Finned Coolers
+50
+M11
+Maintenance of Furnaces
+30
+M12
+Maintenance of Process Columns, Pressure Vessels and Reactors
+50
+M13
+Maintenance of Boilers and Steam Generating Systems
+75
+M14
+Maintenance of Structural Items and Stacks
+30
+M15
+Maintenance of Process Storage Tank
+30
+M16
+Maintenance of Effluent Treatment Systems and Flare System
+30
+M17
+Offsite Maintenance and Fabrication
+60
+M18
+Maintenance of Rotating Equipment
+180
+M19
+Maintenance of Diesel and Petrol Engines
+100
+M20
+Refinery Pneumatic & Hydraulic Tools
+48
+M21
+Refinery Miscellaneous Equipment
+36
+M22
+Mechanical Projects and Planning Activities
+30
+BM01
+Communication Skills for Workplace
+18
+BM02
+Language Literacy û English
+120
+BM03
+Team Work
+8
+BM04
+Occupational Safety, Health and Environmental Aspects
+42
+6. Refinery Engineering Technician (Electrical)
+National Certificate û NVQ Level 5
+Competency Standard Code:áC11S001 |áFirst Publication:áFebruary 2025
+Occupational Definition
+A Refinery Engineering Technician (Electrical) installs, maintains, troubleshoots, and repairs electrical systems and equipment in an oil refinery safely, efficiently, and in accordance with established standards and regulations to ensure efficient and uninterrupted operations.
+Key Responsibilities
+Take measurements using electrical measuring devices while observing safety regulations
+Maintain records, log books, and data sheets
+Maintain 3.3 kW generator systems, power distribution systems, HT and LT motors, electrical devices, and air conditioning systems
+Attend routine, shutdown, and breakdown maintenance
+Repair electrical parts in field equipment
+Install/modify/upgrade industrial electrical installations
+Perform refrigeration and air conditioning work
+Perform auto-electrical works in rigging and heavy vehicles
+Monitor equipment performance and inform officers of abnormal conditions
+Career Progression Paths
+Senior Engineering Technician
+Electrical Superintendent
+Electrical Technician (Oil and Gas)
+Qualification Packaging û 11 Units
+Core Units (7):
+Code
+Unit
+U01
+Perform Electrical System Repairing in Petroleum Refinery
+U02
+Perform Repairing of Electrical Parts in Field Equipment in Petroleum Refinery
+U03
+Perform Installation/Modification/Upgrading of Industrial Electrical Installations
+U04
+Perform Refrigeration and Air Conditioning Work
+U05
+Perform Auto-Electrical Works in Rigging and Heavy Vehicles
+U06
+Conduct Preventive Maintenance Work in Electrical Systems
+U07
+Provide Supportive Services to Other Maintenance Groups
+Basic Units (4):áBU01, BU02, BU03, BU04 (as listed on page 4)
+Qualification Code:áU01+U02+U03+U04+U05+U06+U07+BU01+BU02+BU03+BU04 û C11S001Q1L5
+Prerequisites:áGCE (A/L) Science Stream with 3 passes OR NVQ Level 4 with 5 years oil/gas industry experience
+Key Competency Areas
+Area
+Activities
+Electrical System Repairing
+Diagnose faults in MV/LV motor control centers, transformers, generators, motors, cables, UPS, VFDs; insulation resistance testing; relay calibration
+Field Equipment Repair
+Diagnose and repair electrical parts in welding plants, air compressors, jetting machines; PCB troubleshooting
+Industrial Installations
+Install/modify/upgrade MCCs, transformers, generators; cable laying and termination; testing and commissioning
+Refrigeration & AC
+Split type AC installation and repair; refrigerators/deep freezers; central AC systems; automobile AC
+Auto-Electrical
+Diagnose faults in rigging equipment and heavy vehicles; starting/charging/ignition systems; ECU and sensor diagnosis
+Preventive Maintenance
+Online monitoring; insulation resistance testing; infrared thermography; cathodic protection monitoring
+Supportive Services
+Temporary illumination/power supply; stress relieving heat treatment; temperature profile monitoring
+Training Curriculum û 17 Modules (1,406 Hours)
+Module
+Title
+Hours
+M01
+Introduction to Petrochemical Industry and Refinery
+54
+M02
+Information Systems and Computer Literacy
+50
+M03
+Electricity I
+120
+M04
+Electricity II
+150
+M05
+Workshop Practices
+90
+M06
+Switch Gear and Protection Devices
+90
+M07
+Maintenance of Electrical Machines, Cables and Equipment
+120
+M08
+Maintenance of Field and Rigging Equipment
+108
+M09
+Industrial Electrical Installations
+90
+M10
+Maintenance of Refrigeration and Air Conditioning Systems
+132
+M11
+Preventive Maintenance Works
+60
+M12
+Heat Treatment
+90
+M13
+Cathodic Protection (CP) System
+60
+BM01
+Communication Skills for Workplace
+18
+BM02
+Language Literacy û English
+120
+BM03
+Team Work
+12
+BM04
+Occupational Safety, Health and Environmental Aspects
+42
+7. Refinery Engineering Technician (Instrument)
+National Certificate û NVQ Level 5
+Competency Standard Code:áC11S002 |áFirst Publication:áFebruary 2025
+Occupational Definition
+A Refinery Engineering Technician (Instrument) carries out installation, commissioning, and maintenance (preventive, corrective, and planned shutdown) on field and control center instrumentation in a petroleum refinery according to standard installation/maintenance practices and safety regulations to ensure smooth, safe, and efficient operation.
+Key Responsibilities
+Perform preventive, corrective, and planned shutdown maintenance of field and control center instrumentation
+Install, commission, and maintain steam, boilers, turbo generators, diesel generators, water systems instruments and control systems
+Install, calibrate, and maintain pneumatic, analog, and digital measuring devices for flow, pressure, temperature, and level
+Maintain and repair Tank Gauging Systems (TGS) and Flow Metering Systems
+Maintain and repair VHF communication equipment, PABX systems, and fire alarm systems
+Fabricate control panels, instrument mounting structures, and manifolds
+Maintain PLC/DCS based and hardwired Emergency Shutdown (ESD) systems
+Maintain and calibrate analytical instruments in the refinery laboratory and online analyzers
+Career Progression Paths
+Instrument Technician (Oil & Gas)
+Senior Refinery Engineering Technician (Instrument)
+Instrument Superintendent
+Qualification Packaging û 13 Units
+Core Units (9):
+Code
+Unit
+U01
+Install Process and Analytical Instruments
+U02
+Maintain and Repair Process & Analytical Instruments, Tank Gauging Systems (TGS) and Flow Metering Systems
+U03
+Maintain and Repair Programmable Logic Control (PLC) Systems and Distributed Control Systems (DCS)
+U04
+Perform Field Service of Single Loop and Multifunction Controllers
+U05
+Maintain and Repair Fire and Gas Detection Systems
+U06
+Maintain and Repair Communication Equipment
+U07
+Repair, Overhaul and Calibrate Electronic and Pneumatic Instruments
+U08
+Perform Wiring of Control Panels/Circuits
+U09
+Fabricate Impulse Piping, Mounting Brackets and Accessories
+Basic Units (4):áBU01, BU02, BU03, BU04 (as listed on page 4)
+Qualification Code:áU01+U02+U03+U04+U05+U06+U07+U08+U09+BU01+BU02+BU03+BU04 û C11S002Q1L5
+Prerequisites:áGCE (A/L) Science Stream with 3 passes OR NVQ Level 4 with 5 years oil/gas industry experience
+Key Competency Areas
+Area
+Activities
+Instrument Installation
+Interpret P&ID diagrams; lay cabling/pneumatic systems; install process and analytical instruments; loop tests; calibration
+Maintenance & Repair
+Diagnose faults using HART/Brain communicators; calibrate and re-range instruments; maintain TGS and flow metering systems
+PLC & DCS Systems
+System diagnostics; check breakers, power supplies, I/O modules; processor and communication module troubleshooting
+Controllers
+Install, configure, and program PID controllers; controller tuning; loop testing and fault diagnosis
+Fire & Gas Detection
+Maintain manual call points, smoke/flame/heat/beam/gas detectors; fire alarm panels; HMI fault diagnosis
+Communication Equipment
+Maintain telephones, PABX, walkie-talkies, VHF sets; CCTV systems; MDF wiring
+Repair & Calibration
+Overhaul pneumatic/electro-pneumatic devices; calibrate transmitters, thermocouples, pressure switches
+Control Panel Wiring
+Read GA drawings and wiring diagrams; install components; cable termination and earthing
+Fabrication
+Prepare BOM from CAD drawings; cut, thread, bend steel/stainless steel; fabricate impulse piping and mounting brackets
+Training Curriculum û 16 Modules (1,142 Hours)
+Module
+Title
+Hours
+M01
+Introduction to Petrochemical Industry and Refinery
+54
+M02
+Information Systems and Computer Literacy
+50
+M03
+Electrical and Electronic Fundamentals
+42
+M04
+Workshop Practices
+24
+M05
+Fundamentals of Networking
+24
+M06
+Control Cabling and Pneumatic Systems
+30
+M07
+Fundamentals of Communication Systems
+42
+M08
+Process Measurement and Analytical Instruments
+420
+M09
+Process Control
+78
+M10
+Final Control Elements
+78
+M11
+Process Control Systems
+78
+M12
+Fire and Gas Detection Systems
+42
+BM01
+Communication Skills for Workplace
+12
+BM02
+Language Literacy û English
+120
+BM03
+Team Work
+6
+BM04
+Occupational Safety, Health and Environmental Aspects
+42
+8. Other Technician Trades
+Additional NVQ Level 5 Programs
+5. Refinery Laboratory Analyst
+Specialized training in oil, gas, water, and product analysis. Trainees gain expertise in laboratory analytical instruments and quality control procedures essential for refinery operations.
+6. Industrial Boiler Operator (High Pressure)
+Multitasking trade covering power plant operations, water treatment, and steam systems. Trainees are qualified to operate and maintain high-pressure boilers and associated systems.
+7. Oil and Gas Plant Inspection Technology
+Multitasking trade encompassing Non-Destructive Testing (NDT), Risk-Based Inspection (RBI), and plant integrity management. Essential for ensuring the safe and reliable operation of refinery assets.
+8. 6-G Industrial Welder
+Multitasking trade including welder fabricator, combo welding, and NDT. Trainees achieve the internationally recognized 6-G welding certification, enabling them to work on critical refinery piping and structural components.
+9. Training & Recruitment Process
+Entry Requirements
+Applications are invited through separate paper advertisements for each trade. Candidates must meet the following criteria:
+Educational Qualifications:
+Minimum of six subject passes in one sitting in GCE (O/L) examination, including credit passes in Sinhala/Tamil Language, Mathematics, and Science
+Minimum of three subject passes in Science stream in one sitting at GCE (A/L) Examination
+Age Limit:
+Not more than 24 years as at the closing date of the application
+Written Test:
+Must pass a written test conducted for the respective trade
+Training Program Structure
+The training program is a comprehensiveá4-year full-timeáprogram:
+Stage
+Description
+1. Application & Selection
+Advertisement, written test, and interview
+2. Institutional Training
+Theoretical and practical sessions with mainly in-house resources, with NAITA monitoring and regular assessments
+3. On-the-Job Training
+Focused training in each discipline, attached to respective departments of the refinery or other locations for practical experience
+4. Final Assessment
+Final examinations by NAITA and the Refinery Training Centre with viva and practical tests
+5. Certification & Absorption
+Issuance of NVQ Level 5 certificate and final absorption to CPC permanent cadre
+10. Career Pathways & Opportunities
+National Opportunities
+Upon successful completion of the program and absorption into the CPC permanent cadre, technicians can progress through various career paths, including senior technician positions, supervisory roles, and management positions such as Superintendent.
+International Opportunities
+Trainees not absorbed by the refinery will have opportunities in overseas oil and gas industries and local industries, as the new curricula are multitasking and internationally aligned. With NVQ Level 5 certification, technicians can apply for highly paid foreign jobs in the oil and gas sector.
+Strategic Importance
+Supporting Sri Lanka's Energy Hub Vision
+The development of a skilled, qualified workforce in the oil and gas sector supports the government's policy to make Sri Lanka an energy hub. Recent initiatives, including the Memorandum of Understanding signed in April 2025 between Sri Lanka, India, and the UAE to develop Trincomalee as a regional energy hub, underscore the growing demand for qualified petroleum industry professionals.
+Leveraging National Assets
+The Sapugaskanda RefineryùSri Lanka's one and only refineryùserves as a unique training bay for the development of skilled workforce for both local and international markets.
+Key Benefits of NVQ Level 5 Certification
+Career Development:áPossibility of career development up to senior levels with both hands-on skills and required qualifications (communication, language, management) through bridging qualifications
+International Employment:áOpportunity to apply and get selected for highly paid foreign jobs in the oil and gas sectorùa solution for foreign exchange earnings through skilled workforce
+Domestic Workforce:áAvailability of a skilled qualified workforce within the country for any employer in oil and gas related job positions
+National Policy Support:áSupporting the government's policy to make Sri Lanka an energy hub
+Asset Utilization:áUtilization of available valuable training assets at the Sapugaskanda Refinery
+11. Contact Information
+Refinery Training CenterCeylon Petroleum CorporationSapugaskanda RefinerySri Lanka
+National Apprentice & Industrial Training Authority (NAITA)No. 971, Sri Jayewardhanapura MawathaWelikada, RajagiriyaSri LankaHotline:á1951Tel/Fax:á0112884722
+Tertiary & Vocational Education Commission (TVEC)Sri Lanka
+For application announcements and further information, please refer to official newspaper advertisements and the websites of NAITA and CPC.
+This brochure is based on the National Competency Standards and Curricula for Refinery Technician Trades developed by NAITA in consultation with CPC Refinery experts and endorsed by TVEC.
+First Publication: 2026
+⌐ Refinery Training Center û Ceylon Petroleum Corporation

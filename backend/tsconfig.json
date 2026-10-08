@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    // Output
+    "rootDir": ".",
+    "outDir": "./dist",
+
+    // Module system — CommonJS to match package.json "type": "commonjs"
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2020",
+    "lib": ["es2020"],
+
+    // Node types
+    "types": ["node"],
+
+    // Source maps for debugging
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Interop
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    // Strict checks
+    "strict": true,
+    "skipLibCheck": true,
+
+    // Unused code warnings (optional, uncomment if needed)
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noImplicitReturns": true
+  },
+  "include": ["src/**/*", "run_migration.ts"],
+  "exclude": ["node_modules", "dist"]
+}
