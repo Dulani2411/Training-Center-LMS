@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, BookOpen, Send, User, Shield, Home, LogOut } from "lucide-react";
+import { Menu, X, User, Shield, LogOut } from "lucide-react";
 import logo from "../assets/cpc-logo.png";
 import { useAuth } from "../context/AuthContext";
 
@@ -12,53 +12,53 @@ const Header: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-red-700 shadow-sm transition-all">
-      <div className="w-full max-w-7xl mx-auto flex justify-between items-center py-3 px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-40 border-b-2 border-red-700 bg-white/95 shadow-sm backdrop-blur-md transition-all">
+      <div className="mx-auto flex w-full max-w-[1500px] items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
         {/* Logo + CPC Titles */}
         <Link to="/" className="flex items-center space-x-3.5 group">
           <img
             src={logo}
             alt="CPC Logo"
-            className="w-14 h-14 object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-14 w-14 object-contain transition-transform duration-300 group-hover:scale-105"
           />
           <div className="leading-tight">
-            <h1 className="text-red-700 text-lg sm:text-xl font-black tracking-tight uppercase group-hover:text-red-800 transition-colors">
+            <h1 className="text-lg font-black uppercase tracking-tight text-red-700 transition-colors group-hover:text-red-800 sm:text-xl">
               Ceylon Petroleum Corporation
             </h1>
-            <p className="text-gray-600 text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-red-600 inline-block animate-pulse"></span>
+            <p className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-gray-600 sm:text-sm">
+              <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-red-600"></span>
               Training Center LMS
             </p>
           </div>
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex items-center space-x-1 font-medium text-sm text-gray-700">
+        <nav className="hidden items-center gap-1 text-sm font-semibold text-gray-700 lg:flex">
           <Link
             to="/"
-            className={`px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
-              isActive("/") ? "text-red-700 font-bold bg-red-50" : "hover:text-red-700 hover:bg-gray-50"
+            className={`rounded-xl px-4 py-2.5 transition-all ${
+              isActive("/") ? "bg-red-50 font-bold text-red-700" : "hover:bg-slate-100 hover:text-red-700"
             }`}
           >
-            <Home className="w-4 h-4" /> Home
+            Home
           </Link>
 
           <Link
             to="/courses"
-            className={`px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
-              isActive("/courses") ? "text-red-700 font-bold bg-red-50" : "hover:text-red-700 hover:bg-gray-50"
+            className={`rounded-xl px-4 py-2.5 transition-all ${
+              isActive("/courses") ? "bg-red-50 font-bold text-red-700" : "hover:bg-slate-100 hover:text-red-700"
             }`}
           >
-            <BookOpen className="w-4 h-4" /> Courses
+            Courses
           </Link>
 
           <Link
             to="/signup"
-            className={`px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
-              isActive("/signup") || isActive("/apply") ? "text-red-700 font-bold bg-red-50" : "hover:text-red-700 hover:bg-gray-50"
+            className={`rounded-xl px-4 py-2.5 transition-all ${
+              isActive("/signup") || isActive("/apply") ? "bg-red-50 font-bold text-red-700" : "hover:bg-slate-100 hover:text-red-700"
             }`}
           >
-            <Send className="w-4 h-4" /> Sign Up
+            Sign Up
           </Link>
 
           {/* Unified Login Button */}
@@ -108,7 +108,6 @@ const Header: React.FC = () => {
                     : "bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200"
                 }`}
               >
-                <Shield className="w-3.5 h-3.5 text-red-500" />
                 {adminData?.role === "admin" ? "Superadmin" : "Subadmin"}
               </Link>
               <button
@@ -134,36 +133,36 @@ const Header: React.FC = () => {
 
       {/* Mobile Sliding Menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl px-6 py-5 space-y-3 animate-fadeIn">
+        <div className="animate-fadeIn space-y-3 border-t border-gray-100 bg-white px-6 py-5 shadow-xl lg:hidden">
           <Link
             onClick={() => setMenuOpen(false)}
             to="/"
-            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-              isActive("/") ? "bg-red-50 text-red-700" : "text-gray-700 hover:bg-gray-50"
+            className={`block rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+              isActive("/") ? "bg-red-50 text-red-700" : "text-gray-700 hover:bg-slate-100"
             }`}
           >
-            <Home className="w-4 h-4" /> Home
+            Home
           </Link>
           <Link
             onClick={() => setMenuOpen(false)}
             to="/courses"
-            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-              isActive("/courses") ? "bg-red-50 text-red-700" : "text-gray-700 hover:bg-gray-50"
+            className={`block rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+              isActive("/courses") ? "bg-red-50 text-red-700" : "text-gray-700 hover:bg-slate-100"
             }`}
           >
-            <BookOpen className="w-4 h-4" /> Courses
+            Courses
           </Link>
           <Link
             onClick={() => setMenuOpen(false)}
             to="/signup"
-            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-              isActive("/signup") || isActive("/apply") ? "bg-red-50 text-red-700" : "text-gray-700 hover:bg-gray-50"
+            className={`block rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+              isActive("/signup") || isActive("/apply") ? "bg-red-50 text-red-700" : "text-gray-700 hover:bg-slate-100"
             }`}
           >
-            <Send className="w-4 h-4" /> Sign Up
+            Sign Up
           </Link>
 
-          <div className="pt-3 border-t border-gray-100 space-y-2">
+          <div className="space-y-2 border-t border-gray-100 pt-3">
             {!isStudentLoggedIn && !isAdminLoggedIn && (
               <Link
                 onClick={() => setMenuOpen(false)}
