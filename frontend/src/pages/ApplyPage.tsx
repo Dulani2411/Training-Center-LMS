@@ -479,28 +479,26 @@ const ApplyPage: React.FC = () => {
   };
 
   return (
-    <div className="industrial-page relative min-h-screen overflow-hidden px-3 py-6 sm:px-6 sm:py-10 lg:px-10">
-      <div className="pointer-events-none absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center opacity-25" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(15,31,38,0.94),rgba(89,29,35,0.86)_52%,rgba(20,43,49,0.92))]" />
-      <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-red-700/20 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 right-0 h-[30rem] w-[30rem] rounded-full bg-amber-500/10 blur-3xl" />
-      <div className="relative mx-auto w-full max-w-[1250px] space-y-8">
+    <div className="relative min-h-[calc(100vh-73px)] overflow-hidden bg-[radial-gradient(circle_at_0%_0%,_rgba(183,28,45,0.15),_transparent_32%),radial-gradient(circle_at_100%_100%,_rgba(214,158,76,0.14),_transparent_28%),linear-gradient(135deg,_#f1e9e4_0%,_#f8f7f5_48%,_#e8eef0_100%)] px-3 py-7 sm:px-6 sm:py-10 lg:px-10">
+      <div className="pointer-events-none absolute -left-24 top-20 h-72 w-72 rounded-full bg-red-200/30 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-amber-100/40 blur-3xl" />
+      <div className="relative mx-auto w-full max-w-[1280px] space-y-8">
         {/* Header */}
-        <div className="space-y-3 text-center text-white">
-          <span className="inline-flex items-center rounded-full border border-red-200/30 bg-red-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-red-100 backdrop-blur-sm">
+        <div className="space-y-3 text-center">
+          <span className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-4 py-1.5 text-xs font-black uppercase tracking-wider text-red-800 shadow-sm">
             Official Application Portal
           </span>
-          <h1 className="text-3xl font-black tracking-tight sm:text-5xl">
+          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">
             Training & Apprenticeship Application
           </h1>
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200">
+          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base">
             Ceylon Petroleum Corporation Training Center — Sapugaskanda Refinery. Complete all 4 sections carefully.
           </p>
         </div>
 
         {/* Success Modal / Card */}
         {submittedSuccess ? (
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-green-200 text-center space-y-6">
+          <div className="rounded-[2rem] border border-emerald-200 bg-white p-8 text-center shadow-2xl shadow-slate-400/20 sm:p-14">
             <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
               <CheckCircle className="w-10 h-10" />
             </div>
@@ -537,9 +535,9 @@ const ApplyPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-[#fffdfc] shadow-2xl shadow-black/30">
+          <div className="overflow-hidden rounded-[2rem] border border-slate-200/90 bg-white shadow-2xl shadow-slate-400/20">
             {/* Step Progress Indicators */}
-            <div className="border-b border-slate-200 bg-[#f1e8e5] p-4 sm:p-6">
+            <div className="border-b border-slate-200 bg-slate-100/80 p-4 sm:p-6">
               <div className="grid grid-cols-4 gap-2 text-center text-xs font-bold">
                 {[
                   { step: 1, label: "Personal", icon: <User className="w-4 h-4 mx-auto mb-1" /> },
@@ -555,7 +553,7 @@ const ApplyPage: React.FC = () => {
                     }}
                     className={`py-2 px-1 rounded-xl transition-all ${
                       activeStep === item.step
-                        ? "bg-red-700 text-white shadow-sm"
+                        ?                         "bg-red-700 text-white shadow-lg shadow-red-700/20"
                         : item.step < activeStep
                         ? "text-red-700 hover:bg-red-50"
                         : "text-gray-400 cursor-not-allowed"
@@ -588,7 +586,7 @@ const ApplyPage: React.FC = () => {
                   }
                 }
               }}
-              className="p-6 sm:p-10 space-y-8"
+              className="space-y-8 bg-white p-6 sm:p-10 lg:p-14"
             >
               {/* STEP 1: Personal Information */}
               {activeStep === 1 && (
