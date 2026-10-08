@@ -82,16 +82,16 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#fffafa] px-4 py-8 sm:px-6 lg:px-10">
-      <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-rose-100/70 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -right-20 h-[28rem] w-[28rem] rounded-full bg-orange-100/50 blur-3xl" />
+    <div className="relative flex min-h-[calc(100vh-73px)] overflow-hidden bg-[#f3e8eb] px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
+      <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-rose-200/70 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -right-20 h-[28rem] w-[28rem] rounded-full bg-amber-100/60 blur-3xl" />
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl items-center">
-        <div className="grid w-full overflow-hidden rounded-[2rem] border border-rose-100 bg-white shadow-2xl shadow-rose-900/10 lg:grid-cols-[0.92fr_1.08fr]">
+      <div className="relative mx-auto flex w-full max-w-[1440px] flex-1 items-stretch">
+        <div className="grid w-full overflow-hidden rounded-[1.5rem] border border-rose-200/80 bg-[#fff8f8] shadow-2xl shadow-rose-950/15 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Brand panel */}
-          <div className="relative hidden overflow-hidden bg-gradient-to-br from-rose-50 via-white to-orange-50 p-10 lg:flex lg:flex-col lg:justify-between xl:p-14">
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-[36px] border-rose-100/80" />
-            <div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-rose-100/50" />
+          <div className="relative hidden overflow-hidden bg-gradient-to-br from-[#f8dce0] via-[#f5e6e7] to-[#f5e6d5] p-10 lg:flex lg:flex-col lg:justify-between xl:p-14">
+            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-[36px] border-rose-300/60" />
+            <div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-rose-200/70" />
             <div className="relative">
               <Link to="/" className="inline-flex items-center gap-3">
                 <img src={logo} alt="CPC Logo" className="h-16 w-16 object-contain" />
@@ -101,13 +101,13 @@ const Login: React.FC = () => {
                 </div>
               </Link>
               <div className="mt-16 max-w-sm">
-                <span className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white/80 px-3 py-1.5 text-xs font-bold text-rose-700 shadow-sm">
+                <span className="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-100/80 px-3 py-1.5 text-xs font-bold text-rose-800 shadow-sm">
                   <Sparkles className="h-3.5 w-3.5" /> Learning Management System
                 </span>
-                <h1 className="mt-5 text-4xl font-black leading-tight text-slate-900">
+                <h1 className="mt-5 text-4xl font-black leading-tight text-[#3b1720]">
                   Learn, grow and build your future.
                 </h1>
-                <p className="mt-4 text-sm leading-7 text-slate-500">
+                <p className="mt-4 text-sm leading-7 text-[#684b53]">
                   Your central portal for training applications, technical courses and professional development at the CPC Training Center.
                 </p>
               </div>
@@ -118,24 +118,24 @@ const Login: React.FC = () => {
                 { icon: Users, title: "One connected portal", text: "Stay close to your training center" },
                 { icon: ShieldCheck, title: "Secure access", text: "Your learning journey, protected" },
               ].map(item => (
-                <div key={item.title} className="flex items-center gap-3 rounded-2xl border border-white/80 bg-white/70 p-3.5 shadow-sm">
-                  <div className="rounded-xl bg-rose-100 p-2.5 text-rose-700"><item.icon className="h-4 w-4" /></div>
-                  <div><p className="text-xs font-extrabold text-slate-800">{item.title}</p><p className="mt-0.5 text-[11px] text-slate-500">{item.text}</p></div>
+                <div key={item.title} className="flex items-center gap-3 rounded-2xl border border-rose-200/80 bg-[#fff9f7]/80 p-3.5 shadow-sm">
+                  <div className="rounded-xl bg-rose-200 p-2.5 text-rose-800"><item.icon className="h-4 w-4" /></div>
+                  <div><p className="text-xs font-extrabold text-[#3b1720]">{item.title}</p><p className="mt-0.5 text-[11px] text-[#765d64]">{item.text}</p></div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Form panel */}
-          <div className="p-6 sm:p-10 lg:p-14">
+          <div className="flex items-center bg-[#fffafa] p-6 sm:p-10 lg:p-14">
             <div className="mx-auto max-w-md">
               <div className="mb-8 text-center lg:text-left">
                 <div className="mb-5 flex justify-center lg:hidden"><img src={logo} alt="CPC Logo" className="h-16 w-16 object-contain" /></div>
                 <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-rose-50 px-3 py-1.5 text-xs font-bold text-rose-700">
                   <BookOpen className="h-3.5 w-3.5" /> Welcome back
                 </div>
-                <h2 className="text-3xl font-black tracking-tight text-slate-900">Sign in to your account</h2>
-                <p className="mt-2 text-sm leading-6 text-slate-500">Use your username, email or registration number to continue.</p>
+                <h2 className="text-3xl font-black tracking-tight text-[#30151d]">Sign in to your account</h2>
+                <p className="mt-2 text-sm leading-6 text-[#6d5960]">Use your username, email or registration number to continue.</p>
               </div>
 
               {error && <div className="mb-5 flex items-start gap-2.5 rounded-2xl border border-rose-200 bg-rose-50 p-3.5 text-sm font-medium text-rose-700"><AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" /> <span>{error}</span></div>}
@@ -143,29 +143,29 @@ const Login: React.FC = () => {
 
               <form onSubmit={handleLogin} className="space-y-5">
                 <div>
-                  <label htmlFor="identifier" className="mb-2 block text-xs font-extrabold uppercase tracking-wider text-slate-600">Username / Registration number</label>
+                  <label htmlFor="identifier" className="mb-2 block text-xs font-extrabold uppercase tracking-wider text-[#49323a]">Username / Registration number</label>
                   <div className="relative">
                     <KeyRound className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                    <input id="identifier" type="text" value={identifier} onChange={e => setIdentifier(e.target.value)} placeholder="e.g. REG/2026/001 or email" className="w-full rounded-2xl border border-slate-200 bg-slate-50/60 py-3.5 pl-11 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-rose-400 focus:bg-white focus:ring-4 focus:ring-rose-100" autoComplete="username" required />
+                    <input id="identifier" type="text" value={identifier} onChange={e => setIdentifier(e.target.value)} placeholder="e.g. REG/2026/001 or email" className="w-full rounded-2xl border border-[#c9aeb5] bg-[#f1e7e9] py-3.5 pl-11 pr-4 text-sm font-semibold text-[#30151d] outline-none transition placeholder:text-[#8d737b] focus:border-rose-500 focus:bg-white focus:ring-4 focus:ring-rose-200" autoComplete="username" required />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="password" className="mb-2 block text-xs font-extrabold uppercase tracking-wider text-slate-600">Password</label>
+                  <label htmlFor="password" className="mb-2 block text-xs font-extrabold uppercase tracking-wider text-[#49323a]">Password</label>
                   <div className="relative">
                     <ShieldCheck className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                    <input id="password" type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" className="w-full rounded-2xl border border-slate-200 bg-slate-50/60 py-3.5 pl-11 pr-12 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-rose-400 focus:bg-white focus:ring-4 focus:ring-rose-100" autoComplete="current-password" required />
+                    <input id="password" type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" className="w-full rounded-2xl border border-[#c9aeb5] bg-[#f1e7e9] py-3.5 pl-11 pr-12 text-sm font-semibold text-[#30151d] outline-none transition placeholder:text-[#8d737b] focus:border-rose-500 focus:bg-white focus:ring-4 focus:ring-rose-200" autoComplete="current-password" required />
                     <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-2 text-slate-400 transition hover:bg-rose-50 hover:text-rose-700" aria-label={showPassword ? "Hide password" : "Show password"}>{showPassword ? <HiEyeOff size={19} /> : <HiEye size={19} />}</button>
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-xs">
-                  <label className="flex cursor-pointer items-center gap-2 font-medium text-slate-500"><input type="checkbox" checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} className="h-4 w-4 rounded border-slate-300 text-rose-600 focus:ring-rose-400" /> Remember me</label>
-                  <span className="font-medium text-slate-400" title="Contact CPC Admin to reset credentials">Forgot password?</span>
+                  <label className="flex cursor-pointer items-center gap-2 font-semibold text-[#6d5960]"><input type="checkbox" checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} className="h-4 w-4 rounded border-[#b89aa3] text-rose-600 focus:ring-rose-400" /> Remember me</label>
+                  <span className="font-semibold text-[#8a7078]" title="Contact CPC Admin to reset credentials">Forgot password?</span>
                 </div>
                 <button type="submit" disabled={loading} className={`flex w-full items-center justify-center gap-2 rounded-2xl bg-rose-600 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-rose-600/20 transition-all hover:-translate-y-0.5 hover:bg-rose-700 hover:shadow-xl hover:shadow-rose-600/25 ${loading ? "cursor-not-allowed opacity-70" : ""}`}>
                   {loading ? <><Loader2 className="h-4 w-4 animate-spin" /> Verifying credentials...</> : <>Continue to portal <ArrowRight className="h-4 w-4" /></>}
                 </button>
               </form>
-              <p className="mt-8 text-center text-xs leading-5 text-slate-400">Need access help? Contact the CPC Training Center administrator.</p>
+              <p className="mt-8 text-center text-xs leading-5 text-[#806870]">Need access help? Contact the CPC Training Center administrator.</p>
             </div>
           </div>
         </div>
