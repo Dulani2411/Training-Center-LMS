@@ -82,12 +82,12 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="industrial-page relative flex min-h-[calc(100vh-73px)] overflow-hidden px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
-      <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-red-200/70 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -right-20 h-[28rem] w-[28rem] rounded-full bg-amber-100/60 blur-3xl" />
+    <div className="relative flex min-h-[calc(100vh-73px)] overflow-hidden bg-[radial-gradient(circle_at_0%_0%,_rgba(183,28,45,0.15),_transparent_32%),radial-gradient(circle_at_100%_100%,_rgba(214,158,76,0.14),_transparent_28%),linear-gradient(135deg,_#f1e9e4_0%,_#f8f7f5_48%,_#e8eef0_100%)] px-3 py-5 sm:px-6 sm:py-8 lg:px-10">
+      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-red-200/35 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 right-0 h-[28rem] w-[28rem] rounded-full bg-amber-100/45 blur-3xl" />
 
       <div className="relative mx-auto flex w-full max-w-[1440px] flex-1 items-stretch">
-        <div className="grid w-full overflow-hidden rounded-[1.5rem] border border-red-200/80 bg-[#fff8f8] shadow-2xl shadow-red-950/15 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid w-full overflow-hidden rounded-[2rem] border border-slate-200/90 bg-white/95 shadow-2xl shadow-slate-500/20 lg:grid-cols-[0.95fr_1.05fr]">
           {/* Brand panel */}
           <div className="relative hidden overflow-hidden bg-gradient-to-br from-[#8f1722] via-[#b51f2b] to-[#d4474f] p-10 text-white lg:flex lg:flex-col lg:justify-between xl:p-14">
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-[36px] border-white/15" />
@@ -98,7 +98,7 @@ const Login: React.FC = () => {
                   <img src={logo} alt="CPC Logo" className="h-full w-full object-contain" />
                 </span>
                 <div>
-                  <p className="text-sm font-black uppercase tracking-tight text-rose-700">Ceylon Petroleum</p>
+                  <p className="text-sm font-black uppercase tracking-tight text-white">Ceylon Petroleum</p>
                   <p className="text-xs font-semibold tracking-wide text-red-100">Corporation Training Center</p>
                 </div>
               </Link>
@@ -129,11 +129,11 @@ const Login: React.FC = () => {
           </div>
 
           {/* Form panel */}
-          <div className="flex items-center bg-[#fffafa] p-6 sm:p-10 lg:p-14">
+          <div className="flex items-center bg-[#fbfaf9] p-6 sm:p-10 lg:p-16">
             <div className="mx-auto max-w-md">
               <div className="mb-8 text-center lg:text-left">
                 <div className="mb-5 flex justify-center lg:hidden"><img src={logo} alt="CPC Logo" className="h-16 w-16 object-contain" /></div>
-                <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-rose-50 px-3 py-1.5 text-xs font-bold text-rose-700">
+                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-red-100 bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700">
                   <BookOpen className="h-3.5 w-3.5" /> Welcome back
                 </div>
                 <h2 className="text-3xl font-black tracking-tight text-[#30151d]">Sign in to your account</h2>
@@ -148,14 +148,14 @@ const Login: React.FC = () => {
                   <label htmlFor="identifier" className="mb-2 block text-xs font-extrabold uppercase tracking-wider text-[#49323a]">Username / Registration number</label>
                   <div className="relative">
                     <KeyRound className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                    <input id="identifier" type="text" value={identifier} onChange={e => setIdentifier(e.target.value)} placeholder="e.g. REG/2026/001 or email" className="w-full rounded-2xl border border-[#c9aeb5] bg-[#f1e7e9] py-3.5 pl-11 pr-4 text-sm font-semibold text-[#30151d] outline-none transition placeholder:text-[#8d737b] focus:border-rose-500 focus:bg-white focus:ring-4 focus:ring-rose-200" autoComplete="username" required />
+                    <input id="identifier" type="text" value={identifier} onChange={e => setIdentifier(e.target.value)} placeholder="e.g. REG/2026/001 or email" className="w-full rounded-2xl border border-slate-300 bg-slate-100/80 py-3.5 pl-11 pr-4 text-sm font-semibold text-[#30151d] outline-none transition placeholder:text-slate-500 focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-200" autoComplete="username" required />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="password" className="mb-2 block text-xs font-extrabold uppercase tracking-wider text-[#49323a]">Password</label>
                   <div className="relative">
                     <ShieldCheck className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                    <input id="password" type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" className="w-full rounded-2xl border border-[#c9aeb5] bg-[#f1e7e9] py-3.5 pl-11 pr-12 text-sm font-semibold text-[#30151d] outline-none transition placeholder:text-[#8d737b] focus:border-rose-500 focus:bg-white focus:ring-4 focus:ring-rose-200" autoComplete="current-password" required />
+                    <input id="password" type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" className="w-full rounded-2xl border border-slate-300 bg-slate-100/80 py-3.5 pl-11 pr-12 text-sm font-semibold text-[#30151d] outline-none transition placeholder:text-slate-500 focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-200" autoComplete="current-password" required />
                     <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-2 text-slate-400 transition hover:bg-rose-50 hover:text-rose-700" aria-label={showPassword ? "Hide password" : "Show password"}>{showPassword ? <HiEyeOff size={19} /> : <HiEye size={19} />}</button>
                   </div>
                 </div>
@@ -163,7 +163,7 @@ const Login: React.FC = () => {
                   <label className="flex cursor-pointer items-center gap-2 font-semibold text-[#6d5960]"><input type="checkbox" checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} className="h-4 w-4 rounded border-[#b89aa3] text-rose-600 focus:ring-rose-400" /> Remember me</label>
                   <span className="font-semibold text-[#8a7078]" title="Contact CPC Admin to reset credentials">Forgot password?</span>
                 </div>
-                <button type="submit" disabled={loading} className={`flex w-full items-center justify-center gap-2 rounded-2xl bg-rose-600 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-rose-600/20 transition-all hover:-translate-y-0.5 hover:bg-rose-700 hover:shadow-xl hover:shadow-rose-600/25 ${loading ? "cursor-not-allowed opacity-70" : ""}`}>
+                <button type="submit" disabled={loading} className={`flex w-full items-center justify-center gap-2 rounded-2xl bg-[#9f1d2b] py-3.5 text-sm font-extrabold text-white shadow-lg shadow-red-700/20 transition-all hover:-translate-y-0.5 hover:bg-[#7f1822] hover:shadow-xl hover:shadow-red-700/25 ${loading ? "cursor-not-allowed opacity-70" : ""}`}>
                   {loading ? <><Loader2 className="h-4 w-4 animate-spin" /> Verifying credentials...</> : <>Continue to portal <ArrowRight className="h-4 w-4" /></>}
                 </button>
               </form>
