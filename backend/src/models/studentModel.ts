@@ -13,6 +13,7 @@ export interface Student {
   studentId?: string;
   enrolledCourse?: string;
   isPasswordChanged?: boolean;
+  photoUrl?: string;
   createdAt?: Date;
 }
 
@@ -69,6 +70,10 @@ export const getStudentByIdentifier = async (identifier: string): Promise<Studen
 export const getStudentById = async (id: number): Promise<Student | null> => {
   try {
     const pool = getPool();
+    await pool.request().query(`
+      IF COL_LENGTH('dbo.Students', 'photoUrl') IS NULL
+        ALTER TABLE [dbo].[Students] ADD photoUrl NVARCHAR(500) NULL
+    `);
     const result = await pool
       .request()
       .input("id", sql.Int, id)
@@ -78,6 +83,19 @@ export const getStudentById = async (id: number): Promise<Student | null> => {
     console.error("❌ getStudentById error:", err);
     throw err;
   }
+};
+
+export const updateStudentPhoto = async (id: number, photoUrl: string): Promise<boolean> => {
+  const pool = getPool();
+  await pool.request().query(`
+    IF COL_LENGTH('dbo.Students', 'photoUrl') IS NULL
+      ALTER TABLE [dbo].[Students] ADD photoUrl NVARCHAR(500) NULL
+  `);
+  const result = await pool.request()
+    .input("id", sql.Int, id)
+    .input("photoUrl", sql.NVarChar(500), photoUrl)
+    .query("UPDATE [dbo].[Students] SET photoUrl = @photoUrl WHERE id = @id");
+  return (result.rowsAffected?.[0] ?? 0) > 0;
 };
 
 // =============================================

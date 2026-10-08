@@ -107,6 +107,18 @@ export const getAllApplications = async (): Promise<Application[]> => {
   }
 };
 
+export const getApplicationByEmail = async (email: string): Promise<Application | null> => {
+  const pool = getPool();
+  const result = await pool.request()
+    .input("email", sql.NVarChar(255), email.trim().toLowerCase())
+    .query(`
+      SELECT TOP 1 * FROM [dbo].[TrainingApplications]
+      WHERE LOWER(LTRIM(RTRIM(personalEmail))) = @email
+      ORDER BY createdAt DESC
+    `);
+  return result.recordset.length > 0 ? result.recordset[0] as Application : null;
+};
+
 export const deleteApplication = async (id: number): Promise<boolean> => {
   try {
     const pool = getPool();

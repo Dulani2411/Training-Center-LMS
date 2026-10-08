@@ -9,6 +9,8 @@ import {
   deleteStudentByAdmin,
   resetPasswordByAdmin,
   updateEnrolledCourseByAdmin,
+  uploadStudentPhoto,
+  uploadStudentPhotoController,
 } from "../controllers/studentController";
 
 const router = express.Router();
@@ -43,7 +45,7 @@ router.post("/:id/reset-password", resetPasswordByAdmin);
 
 // Update enrolled course by admin
 router.post("/:id/update-course", updateEnrolledCourseByAdmin);
+router.post("/:id/photo", uploadStudentPhoto.single("photo"), uploadStudentPhotoController);
 
 export default router;
-
 

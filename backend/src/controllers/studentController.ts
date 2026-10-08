@@ -6,8 +6,13 @@ import {
   updateStudentPasswordByEmail,
   changePasswordOnFirstLogin,
   verifyPassword,
+  updateStudentPhoto,
   type Student,
 } from "../models/studentModel";
+import { getApplicationByEmail } from "../models/applicationModel";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
 import jwt, { type SignOptions } from "jsonwebtoken";
 
 // JWT_SECRET must come from .env — no hardcoded fallback
@@ -151,10 +156,38 @@ export const getStudentProfile = async (req: Request, res: Response) => {
 
     // Strip password before sending
     const { password, ...safe } = student as Required<Student>;
-    return res.status(200).json(safe);
+    const application = await getApplicationByEmail(student.email);
+    return res.status(200).json({ ...safe, application });
   } catch (err: unknown) {
     console.error("❌ getStudentProfile error:", err);
     return res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+const profilePhotoDir = path.join(process.cwd(), "uploads", "student-photos");
+if (!fs.existsSync(profilePhotoDir)) fs.mkdirSync(profilePhotoDir, { recursive: true });
+export const uploadStudentPhoto = multer({
+  storage: multer.diskStorage({
+    destination: (_req, _file, cb) => cb(null, profilePhotoDir),
+    filename: (_req, file, cb) => cb(null, `student_${Date.now()}${path.extname(file.originalname).toLowerCase()}`),
+  }),
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter: (_req, file, cb) => {
+    if (["image/jpeg", "image/png", "image/webp"].includes(file.mimetype)) cb(null, true);
+    else cb(new Error("Only JPG, PNG, and WebP images are allowed."));
+  },
+});
+
+export const uploadStudentPhotoController = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id ?? "");
+    if (isNaN(id) || !req.file) return res.status(400).json({ message: "A valid student ID and image are required." });
+    const photoUrl = `/uploads/student-photos/${req.file.filename}`;
+    if (!await updateStudentPhoto(id, photoUrl)) return res.status(404).json({ message: "Student not found." });
+    return res.status(200).json({ photoUrl });
+  } catch (err) {
+    console.error("❌ uploadStudentPhoto error:", err);
+    return res.status(500).json({ message: "Unable to upload profile photo." });
   }
 };
 
@@ -368,6 +401,5 @@ export const updateEnrolledCourseByAdmin = async (req: Request, res: Response) =
     return res.status(500).json({ message: "Internal server error." });
   }
 };
-
 
 
