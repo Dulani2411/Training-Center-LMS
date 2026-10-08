@@ -479,17 +479,21 @@ const ApplyPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50/50 py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto space-y-8">
+    <div className="relative min-h-screen overflow-hidden bg-[#17252a] px-3 py-6 sm:px-6 sm:py-10 lg:px-10">
+      <div className="pointer-events-none absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center opacity-25" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(15,31,38,0.94),rgba(89,29,35,0.86)_52%,rgba(20,43,49,0.92))]" />
+      <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-red-700/20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 right-0 h-[30rem] w-[30rem] rounded-full bg-amber-500/10 blur-3xl" />
+      <div className="relative mx-auto w-full max-w-[1250px] space-y-8">
         {/* Header */}
-        <div className="text-center space-y-2">
-          <span className="inline-block px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full uppercase tracking-wider">
+        <div className="space-y-3 text-center text-white">
+          <span className="inline-flex items-center rounded-full border border-red-200/30 bg-red-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-red-100 backdrop-blur-sm">
             Official Application Portal
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+          <h1 className="text-3xl font-black tracking-tight sm:text-5xl">
             Training & Apprenticeship Application
           </h1>
-          <p className="text-gray-600 text-sm max-w-2xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200">
             Ceylon Petroleum Corporation Training Center — Sapugaskanda Refinery. Complete all 4 sections carefully.
           </p>
         </div>
@@ -533,9 +537,9 @@ const ApplyPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-[#fffdfc] shadow-2xl shadow-black/30">
             {/* Step Progress Indicators */}
-            <div className="border-b border-gray-100 bg-gray-50/70 p-4 sm:p-6">
+            <div className="border-b border-slate-200 bg-[#f1e8e5] p-4 sm:p-6">
               <div className="grid grid-cols-4 gap-2 text-center text-xs font-bold">
                 {[
                   { step: 1, label: "Personal", icon: <User className="w-4 h-4 mx-auto mb-1" /> },
