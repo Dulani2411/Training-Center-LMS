@@ -14,7 +14,7 @@ const CoursesPage: React.FC = () => {
     <button
       onClick={() => toggleSection(id)}
       className={`group w-full flex items-center justify-between px-5 py-5 sm:px-8 sm:py-6 transition-all focus:outline-none ${
-        activeSection === id ? "bg-red-50/60" : "bg-white hover:bg-slate-50"
+        activeSection === id ? "bg-red-50/80" : "bg-white hover:bg-slate-50"
       }`}
     >
       <div className="flex items-center gap-4">
@@ -30,11 +30,13 @@ const CoursesPage: React.FC = () => {
   );
 
   return (
-    <div className="industrial-page min-h-screen px-3 py-6 sm:px-6 sm:py-10 lg:px-10">
-      <div className="mx-auto w-full max-w-[1500px] space-y-8">
+    <div className="relative min-h-[calc(100vh-73px)] overflow-hidden bg-[radial-gradient(circle_at_0%_0%,_rgba(183,28,45,0.15),_transparent_32%),radial-gradient(circle_at_100%_100%,_rgba(214,158,76,0.14),_transparent_28%),linear-gradient(135deg,_#f1e9e4_0%,_#f8f7f5_48%,_#e8eef0_100%)] px-3 py-7 sm:px-6 sm:py-10 lg:px-10">
+      <div className="pointer-events-none absolute -left-32 top-28 h-80 w-80 rounded-full bg-red-200/30 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 right-0 h-[28rem] w-[28rem] rounded-full bg-amber-100/40 blur-3xl" />
+      <div className="relative mx-auto w-full max-w-[1500px] space-y-8">
         
         {/* Hero Banner */}
-        <div className="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#7f1018] via-red-700 to-[#c52632] px-6 py-12 text-white shadow-2xl shadow-red-900/20 sm:px-12 lg:px-20 lg:py-16">
+        <div className="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#68131d] via-[#a91f2d] to-[#d04b4a] px-6 py-12 text-white shadow-2xl shadow-red-900/25 sm:px-12 lg:px-20 lg:py-16">
           <div className="pointer-events-none absolute -right-20 -top-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-40 left-1/3 h-80 w-80 rounded-full bg-rose-300/10 blur-3xl" />
           <div className="relative z-10 mx-auto max-w-5xl text-center">
@@ -55,7 +57,7 @@ const CoursesPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/90 shadow-xl shadow-slate-200/60 divide-y divide-slate-100 backdrop-blur">
+        <div className="overflow-hidden rounded-[2rem] border border-slate-200/90 bg-white/95 shadow-2xl shadow-slate-400/20 divide-y divide-slate-200/80 backdrop-blur">
           
           {/* Section 1: About */}
           <div>
@@ -156,9 +158,9 @@ const CoursesPage: React.FC = () => {
                 <p className="mb-8 max-w-4xl text-sm leading-relaxed text-slate-600 sm:text-base">
                   The Refinery Training Center offers NVQ Level 5 National Certificate programs in the following eight technical trades. Select a course below to view occupational definitions, key responsibilities, qualification packaging, and the full training curriculum.
                 </p>
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                   {coursesData.map((course) => (
-                    <div key={course.id} className="group flex min-h-[285px] flex-col justify-between rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-red-50/40 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/10">
+                    <div key={course.id} className="group flex min-h-[300px] flex-col justify-between rounded-[1.75rem] border border-slate-200 bg-gradient-to-br from-white via-white to-[#f8ece9] p-6 shadow-md shadow-slate-200/70 transition-all duration-300 hover:-translate-y-1.5 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/10">
                       <div className="space-y-3">
                         {course.code && (
                           <span className="inline-flex items-center gap-1.5 rounded-full border border-red-100 bg-red-50 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-red-700">
@@ -166,7 +168,7 @@ const CoursesPage: React.FC = () => {
                             {course.code}
                           </span>
                         )}
-                        <h3 className="text-lg font-black leading-snug text-slate-900 transition-colors group-hover:text-red-700">
+                        <h3 className="text-xl font-black leading-snug text-slate-900 transition-colors group-hover:text-red-700">
                           {course.title}
                         </h3>
                         <p className="line-clamp-4 text-sm leading-relaxed text-slate-500">
@@ -177,7 +179,7 @@ const CoursesPage: React.FC = () => {
                         <span className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400"><Award className="h-4 w-4 text-red-500" /> NVQ Level 5</span>
                         <Link
                           to={`/course/${course.id}`}
-                          className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-bold text-white transition-all hover:bg-red-700 hover:shadow-lg hover:shadow-red-700/20"
+                          className="inline-flex items-center gap-1.5 rounded-xl bg-[#7f1822] px-4 py-2.5 text-xs font-bold text-white transition-all hover:bg-red-700 hover:shadow-lg hover:shadow-red-700/20"
                         >
                           View Details <ArrowRight className="w-4 h-4" />
                         </Link>
