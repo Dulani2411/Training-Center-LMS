@@ -27,4 +27,10 @@ app.use("/api/announcements", announcementRoutes);
 app.use("/api/materials", materialRoutes);
 app.use("/api/marks", markRoutes);
 
+// Keep API errors JSON so clients can display the actual server error.
+app.use("/api", (err: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  console.error("❌ API error:", err);
+  return res.status(500).json({ message: "Internal server error." });
+});
+
 export default app;

@@ -104,8 +104,17 @@ export default function StudentProfile() {
     const form = new FormData(); form.append("photo", file);
     try {
       const res = await fetch(`${API}/students/${student.id}/photo`, { method: "POST", body: form });
-      const data = await res.json();
+      const responseText = await res.text();
+      let data: { message?: string; photoUrl?: string };
+      try {
+        data = JSON.parse(responseText) as { message?: string; photoUrl?: string };
+      } catch {
+        throw new Error(res.ok
+          ? "The server returned an invalid response."
+          : `Photo upload failed (${res.status}). Please restart the backend server and try again.`);
+      }
       if (!res.ok) throw new Error(data.message || "Upload failed");
+      if (!data.photoUrl) throw new Error("The server did not return the uploaded photo.");
       setStudent(prev => prev ? { ...prev, photoUrl: data.photoUrl } : prev);
       setNotice({ text: "Profile photo updated successfully." });
     } catch (error) {

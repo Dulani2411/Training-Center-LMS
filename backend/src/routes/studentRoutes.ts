@@ -45,7 +45,16 @@ router.post("/:id/reset-password", resetPasswordByAdmin);
 
 // Update enrolled course by admin
 router.post("/:id/update-course", updateEnrolledCourseByAdmin);
-router.post("/:id/photo", uploadStudentPhoto.single("photo"), uploadStudentPhotoController);
+router.post("/:id/photo", (req, res, next) => {
+  uploadStudentPhoto.single("photo")(req, res, (err: unknown) => {
+    if (err) {
+      console.error("❌ student photo upload middleware error:", err);
+      return res.status(400).json({
+        message: err instanceof Error ? err.message : "Invalid profile photo upload.",
+      });
+    }
+    return uploadStudentPhotoController(req, res).catch(next);
+  });
+});
 
 export default router;
-
