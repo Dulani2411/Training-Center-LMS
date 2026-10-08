@@ -74,6 +74,8 @@ const AdminDashboard: React.FC = () => {
   const [materialForm, setMaterialForm] = useState({ courseId: "", title: "", description: "", linkUrl: "" });
   const [materialFile, setMaterialFile] = useState<File | null>(null);
   const [showMaterialForm, setShowMaterialForm] = useState(false);
+  const [editingMaterial, setEditingMaterial] = useState<Material | null>(null);
+  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
   const [selectedCourseFilter, setSelectedCourseFilter] = useState<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -198,6 +200,22 @@ const AdminDashboard: React.FC = () => {
   // ── Material Upload ──
   const saveMaterial = async () => {
     if (!materialForm.courseId || !materialForm.title) return showToast("Course and title required.", "error");
+    if (editingMaterial?.id) {
+      const res = await fetch(`${API}/materials/${editingMaterial.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: materialForm.title, description: materialForm.description }),
+      });
+      if (res.ok) {
+        showToast("Resource updated successfully.");
+        setShowMaterialForm(false);
+        setEditingMaterial(null);
+        fetchAll();
+      } else {
+        showToast("Failed to update resource.", "error");
+      }
+      return;
+    }
     const fd = new FormData();
     fd.append("courseId", materialForm.courseId);
     fd.append("title", materialForm.title);
@@ -211,8 +229,21 @@ const AdminDashboard: React.FC = () => {
   };
   const deleteMaterial = async (id: number) => {
     if (!confirm("Delete?")) return;
-    await fetch(`${API}/materials/${id}`, { method: "DELETE" });
-    showToast("Deleted."); fetchAll();
+    const res = await fetch(`${API}/materials/${id}`, { method: "DELETE" });
+    if (res.ok) { showToast("Resource deleted."); fetchAll(); }
+    else showToast("Failed to delete resource.", "error");
+  };
+
+  const openMaterialEditor = (material: Material) => {
+    setEditingMaterial(material);
+    setMaterialFile(null);
+    setMaterialForm({
+      courseId: String(material.courseId),
+      title: material.title,
+      description: material.description ?? "",
+      linkUrl: material.linkUrl ?? "",
+    });
+    setShowMaterialForm(true);
   };
 
   // ── Mark CRUD ──
@@ -481,9 +512,73 @@ const AdminDashboard: React.FC = () => {
             </div>
           )}
 
+          {selectedCourseId && (() => {
+            const selectedCourse = courses.find(course => course.id === selectedCourseId);
+            if (!selectedCourse) return null;
+            const courseMaterials = materials.filter(material => material.courseId === selectedCourse.id);
+            return (
+              <section className="overflow-hidden rounded-[1.5rem] border border-red-100 bg-white shadow-xl shadow-slate-200/60">
+                <div className="flex flex-col gap-4 border-b border-slate-100 bg-gradient-to-r from-red-50 to-white p-6 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p className="mb-1 text-[11px] font-extrabold uppercase tracking-wider text-red-700">Course workspace</p>
+                    <h3 className="text-2xl font-black text-slate-900">{selectedCourse.courseName}</h3>
+                    <p className="mt-1 text-sm text-slate-500">{selectedCourse.duration || "Training programme"} · {courseMaterials.length} resource{courseMaterials.length === 1 ? "" : "s"}</p>
+                  </div>
+                  <button onClick={() => setSelectedCourseId(null)} className="self-start rounded-xl border border-slate-200 px-3 py-2 text-xs font-bold text-slate-600 transition hover:bg-slate-50">
+                    Close course
+                  </button>
+                </div>
+                <div className="p-6">
+                  <div className="mb-4 flex items-center justify-between">
+                    <div>
+                      <h4 className="font-black text-slate-900">Course resources</h4>
+                      <p className="mt-1 text-xs text-slate-500">Review the materials currently available for this course.</p>
+                    </div>
+                    {isAdmin && (
+                      <button onClick={() => {
+                        setEditingMaterial(null);
+                        setMaterialFile(null);
+                        setMaterialForm({ courseId: String(selectedCourse.id), title: "", description: "", linkUrl: "" });
+                        setShowMaterialForm(true);
+                      }} className="inline-flex items-center gap-1.5 rounded-xl bg-[#9f1d2b] px-3 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-[#7f1822]">
+                        <Plus className="h-3.5 w-3.5" /> Add resource
+                      </button>
+                    )}
+                  </div>
+                  {courseMaterials.length > 0 ? (
+                    <div className="grid gap-3 md:grid-cols-2">
+                      {courseMaterials.map(material => (
+                        <div key={material.id} className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+                          <div className="min-w-0">
+                            {(material.linkUrl || material.fileUrl) ? (
+                              <a href={material.linkUrl || `http://localhost:5000${material.fileUrl}`} target="_blank" rel="noreferrer" className="block truncate text-sm font-bold text-blue-700 hover:underline">{material.title}</a>
+                            ) : <p className="truncate text-sm font-bold text-slate-800">{material.title}</p>}
+                            <p className="mt-1 truncate text-xs text-slate-500">{material.description || material.fileName || "Course resource"}</p>
+                          </div>
+                          {isAdmin && (
+                            <div className="flex flex-shrink-0 gap-1">
+                              <button onClick={() => openMaterialEditor(material)} className="rounded-lg p-2 text-slate-500 transition hover:bg-white hover:text-blue-700" aria-label={`Edit ${material.title}`}><Pencil className="h-4 w-4" /></button>
+                              <button onClick={() => deleteMaterial(material.id!)} className="rounded-lg p-2 text-slate-500 transition hover:bg-red-50 hover:text-red-700" aria-label={`Delete ${material.title}`}><Trash2 className="h-4 w-4" /></button>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
+                      <FolderOpen className="mx-auto h-8 w-8 text-slate-300" />
+                      <p className="mt-2 text-sm font-bold text-slate-600">No resources added yet</p>
+                      <p className="mt-1 text-xs text-slate-400">Add a file or external link to make it available here.</p>
+                    </div>
+                  )}
+                </div>
+              </section>
+            );
+          })()}
+
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {courses.map(c => (
-              <div key={c.id} className="group flex min-h-[285px] flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-md shadow-slate-200/60 transition duration-300 hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/10">
+              <div key={c.id} onClick={() => setSelectedCourseId(c.id!)} className="group flex min-h-[285px] cursor-pointer flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-md shadow-slate-200/60 transition duration-300 hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/10">
                 <div className="mb-5 flex items-start justify-between">
                   <div className="rounded-2xl bg-red-50 p-3 ring-1 ring-red-100 transition group-hover:bg-red-100">
                     <BookOpen className="h-6 w-6 text-red-700" />
@@ -507,7 +602,7 @@ const AdminDashboard: React.FC = () => {
                     {materials.filter(m => m.courseId === c.id).map(mat => (
                       <div key={mat.id} className="mt-1.5 flex items-center justify-between rounded-lg bg-slate-50 p-2 ring-1 ring-slate-100">
                         {(mat.linkUrl || mat.fileUrl) ? <a href={mat.linkUrl || `http://localhost:5000${mat.fileUrl}`} target="_blank" rel="noreferrer" className="text-xs text-blue-700 truncate max-w-[180px] hover:underline">{mat.title}</a> : <span className="text-xs text-gray-700 truncate max-w-[180px]">{mat.title}</span>}
-                        {isAdmin && <button onClick={() => deleteMaterial(mat.id!)} className="text-red-400 hover:text-red-600"><X className="w-3 h-3" /></button>}
+                        {isAdmin && <div className="flex gap-1"><button onClick={(event) => { event.stopPropagation(); openMaterialEditor(mat); }} className="text-slate-400 hover:text-blue-600" aria-label={`Edit ${mat.title}`}><Pencil className="w-3 h-3" /></button><button onClick={(event) => { event.stopPropagation(); deleteMaterial(mat.id!); }} className="text-red-400 hover:text-red-600" aria-label={`Delete ${mat.title}`}><X className="w-3 h-3" /></button></div>}
                       </div>
                     ))}
                   </div>
@@ -515,11 +610,11 @@ const AdminDashboard: React.FC = () => {
 
                 {isAdmin && (
                   <div className="mt-auto flex gap-2 border-t border-slate-100 pt-4">
-                    <button onClick={() => { setEditingCourse(c); setCourseForm({ courseName: c.courseName, description: c.description, duration: c.duration, status: c.status }); setShowCourseForm(true); }}
+                    <button onClick={(event) => { event.stopPropagation(); setEditingCourse(c); setCourseForm({ courseName: c.courseName, description: c.description, duration: c.duration, status: c.status }); setShowCourseForm(true); }}
                       className="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg border border-gray-200 text-xs text-gray-600 hover:bg-gray-50">
                       <Pencil className="w-3 h-3" /> Edit
                     </button>
-                    <button onClick={() => deleteCourse(c.id!)} className="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg border border-red-100 text-xs text-red-600 hover:bg-red-50">
+                    <button onClick={(event) => { event.stopPropagation(); deleteCourse(c.id!); }} className="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg border border-red-100 text-xs text-red-600 hover:bg-red-50">
                       <Trash2 className="w-3 h-3" /> Delete
                     </button>
                   </div>
@@ -828,7 +923,7 @@ const AdminDashboard: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
           <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg">
             <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-              <h3 className="font-bold text-gray-900">Upload Course Material</h3>
+              <h3 className="font-bold text-gray-900">{editingMaterial ? "Edit Course Resource" : "Add Course Resource"}</h3>
               <button onClick={() => setShowMaterialForm(false)} className="p-2 rounded-xl hover:bg-gray-100"><X className="w-5 h-5" /></button>
             </div>
             <div className="p-6 space-y-4">
@@ -841,9 +936,9 @@ const AdminDashboard: React.FC = () => {
                 placeholder="Material Title *" className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm" />
               <textarea value={materialForm.description} onChange={e => setMaterialForm(p => ({ ...p, description: e.target.value }))}
                 placeholder="Description (optional)" rows={2} className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm resize-none" />
-              <input value={materialForm.linkUrl} onChange={e => setMaterialForm(p => ({ ...p, linkUrl: e.target.value }))}
-                placeholder="External link (e.g. Google Form URL)" type="url" className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm" />
-              <div>
+              {!editingMaterial && <input value={materialForm.linkUrl} onChange={e => setMaterialForm(p => ({ ...p, linkUrl: e.target.value }))}
+                placeholder="External link (e.g. Google Form URL)" type="url" className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm" />}
+              {!editingMaterial && <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-2 uppercase">File (PDF, Word, PowerPoint)</label>
                 {!materialFile ? (
                   <label className="flex flex-col items-center justify-center h-28 border-2 border-dashed border-gray-200 rounded-2xl cursor-pointer hover:border-red-400 hover:bg-red-50/30 transition-all">
@@ -857,10 +952,10 @@ const AdminDashboard: React.FC = () => {
                     <button onClick={() => setMaterialFile(null)} className="text-red-500"><X className="w-4 h-4" /></button>
                   </div>
                 )}
-              </div>
+              </div>}
               <div className="flex gap-2 pt-2">
-                <button onClick={saveMaterial} className="flex-1 py-2.5 bg-red-700 text-white rounded-xl font-bold text-sm hover:bg-red-800">Upload</button>
-                <button onClick={() => setShowMaterialForm(false)} className="flex-1 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-600">Cancel</button>
+                <button onClick={saveMaterial} className="flex-1 py-2.5 bg-red-700 text-white rounded-xl font-bold text-sm hover:bg-red-800">{editingMaterial ? "Save changes" : "Add resource"}</button>
+                <button onClick={() => { setShowMaterialForm(false); setEditingMaterial(null); }} className="flex-1 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-600">Cancel</button>
               </div>
             </div>
           </div>
