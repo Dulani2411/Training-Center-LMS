@@ -445,15 +445,18 @@ const AdminDashboard: React.FC = () => {
 
       // ── Courses ──
       case "courses": return (
-        <div className="space-y-6">
-          <div className="flex items-center justify-between">
+        <div className="space-y-7">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-2xl font-extrabold text-gray-900">Courses</h2>
-              <p className="text-gray-500 text-sm mt-1">{courses.length} courses</p>
+              <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-red-100 bg-red-50 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-red-700">
+                <BookOpen className="h-3.5 w-3.5" /> Learning catalogue
+              </div>
+              <h2 className="text-3xl font-black tracking-tight text-slate-900">Courses</h2>
+              <p className="mt-1 text-sm text-slate-500">{courses.length} technical training {courses.length === 1 ? "course" : "courses"} available</p>
             </div>
             {isAdmin && (
               <button onClick={() => { setShowCourseForm(true); setEditingCourse(null); setCourseForm({ courseName: "", description: "", duration: "", status: "ACTIVE" }); }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-red-700 text-white rounded-xl text-sm font-bold hover:bg-red-800">
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#9f1d2b] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-red-700/15 transition hover:bg-[#7f1822]">
                 <Plus className="w-4 h-4" /> Add Course
               </button>
             )}
@@ -478,31 +481,31 @@ const AdminDashboard: React.FC = () => {
             </div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {courses.map(c => (
-              <div key={c.id} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex flex-col">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="p-2 bg-red-50 rounded-xl">
-                    <BookOpen className="w-5 h-5 text-red-700" />
+              <div key={c.id} className="group flex min-h-[285px] flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-md shadow-slate-200/60 transition duration-300 hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/10">
+                <div className="mb-5 flex items-start justify-between">
+                  <div className="rounded-2xl bg-red-50 p-3 ring-1 ring-red-100 transition group-hover:bg-red-100">
+                    <BookOpen className="h-6 w-6 text-red-700" />
                   </div>
-                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${c.status === "ACTIVE" || !c.status ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
+                  <span className={`rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide ${c.status === "ACTIVE" || !c.status ? "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100" : "bg-slate-100 text-slate-500"}`}>
                     {c.status ?? "ACTIVE"}
                   </span>
                 </div>
-                <h4 className="font-bold text-gray-800 text-sm mb-1">{c.courseName}</h4>
-                {c.description && <p className="text-xs text-gray-500 line-clamp-2 mb-2">{c.description}</p>}
-                {c.duration && <p className="text-xs text-gray-400">⏱ {c.duration}</p>}
+                <h4 className="mb-2 text-lg font-black leading-snug text-slate-900 transition group-hover:text-red-700">{c.courseName}</h4>
+                {c.description && <p className="mb-3 line-clamp-3 text-sm leading-relaxed text-slate-500">{c.description}</p>}
+                {c.duration && <p className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400"><span className="text-red-600">●</span> {c.duration}</p>}
 
                 {/* Materials for this course */}
                 {hasStaffAccess && (
-                  <div className="mt-3 pt-3 border-t border-gray-100">
-                    <p className="text-xs text-gray-400 mb-2 font-semibold">MATERIALS ({materials.filter(m => m.courseId === c.id).length})</p>
+                  <div className="mt-5 border-t border-slate-100 pt-4">
+                    <p className="mb-2 text-[11px] font-extrabold uppercase tracking-wider text-slate-400">Resources ({materials.filter(m => m.courseId === c.id).length})</p>
                     {isAdmin && <button onClick={() => { setSelectedCourseFilter(c.id!); setMaterialForm(p => ({ ...p, courseId: String(c.id) })); setShowMaterialForm(true); }}
-                      className="text-xs text-blue-600 hover:underline font-medium flex items-center gap-1">
+                      className="flex items-center gap-1 text-xs font-bold text-blue-700 hover:text-blue-900">
                       <Upload className="w-3 h-3" /> Add Resource
                     </button>}
                     {materials.filter(m => m.courseId === c.id).map(mat => (
-                      <div key={mat.id} className="flex items-center justify-between mt-1.5 p-1.5 bg-gray-50 rounded-lg">
+                      <div key={mat.id} className="mt-1.5 flex items-center justify-between rounded-lg bg-slate-50 p-2 ring-1 ring-slate-100">
                         {(mat.linkUrl || mat.fileUrl) ? <a href={mat.linkUrl || `http://localhost:5000${mat.fileUrl}`} target="_blank" rel="noreferrer" className="text-xs text-blue-700 truncate max-w-[180px] hover:underline">{mat.title}</a> : <span className="text-xs text-gray-700 truncate max-w-[180px]">{mat.title}</span>}
                         {isAdmin && <button onClick={() => deleteMaterial(mat.id!)} className="text-red-400 hover:text-red-600"><X className="w-3 h-3" /></button>}
                       </div>
@@ -511,7 +514,7 @@ const AdminDashboard: React.FC = () => {
                 )}
 
                 {isAdmin && (
-                  <div className="mt-auto pt-3 flex gap-2">
+                  <div className="mt-auto flex gap-2 border-t border-slate-100 pt-4">
                     <button onClick={() => { setEditingCourse(c); setCourseForm({ courseName: c.courseName, description: c.description, duration: c.duration, status: c.status }); setShowCourseForm(true); }}
                       className="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg border border-gray-200 text-xs text-gray-600 hover:bg-gray-50">
                       <Pencil className="w-3 h-3" /> Edit
