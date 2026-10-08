@@ -488,10 +488,10 @@ const ApplyPage: React.FC = () => {
           <span className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-4 py-1.5 text-xs font-black uppercase tracking-wider text-red-800 shadow-sm">
             Official Application Portal
           </span>
-          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">
+          <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Training & Apprenticeship Application
           </h1>
-          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
             Ceylon Petroleum Corporation Training Center — Sapugaskanda Refinery. Complete all 4 sections carefully.
           </p>
         </div>
