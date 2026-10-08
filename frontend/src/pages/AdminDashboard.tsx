@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   Users, FileText, Search, X, BookOpen, Plus, Pencil, Trash2, LogOut,
   Loader2, ShieldCheck, Bell, Upload, ChevronDown, ChevronUp, Award,
@@ -33,12 +34,13 @@ function formatDate(d?: string) { if (!d) return "—"; return new Date(d).toLoc
 // ─────────────────────────── Component ──────────────────────────
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { adminData, logoutAdmin } = useAuth();
   const isAdmin = adminData?.role === "admin";
   const isSubadmin = adminData?.role === "subadmin";
   const hasStaffAccess = isAdmin || isSubadmin;
 
-  const [activeTab, setActiveTab] = useState<Tab>("dashboard");
+  const [activeTab, setActiveTab] = useState<Tab>(() => new URLSearchParams(window.location.search).get("tab") === "courses" ? "courses" : "dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
 
@@ -106,6 +108,9 @@ const AdminDashboard: React.FC = () => {
   }, []);
 
   useEffect(() => { if (!adminData) { navigate("/login"); return; } fetchAll(); }, [adminData, fetchAll, navigate]);
+  useEffect(() => {
+    if (new URLSearchParams(location.search).get("tab") === "courses") setActiveTab("courses");
+  }, [location.search]);
 
   // ── Course CRUD ──
   const saveCourse = async () => {

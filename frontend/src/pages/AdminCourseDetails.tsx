@@ -149,18 +149,22 @@ const AdminCourseDetails: React.FC = () => {
   };
 
   if (loading) return <div className="industrial-page flex min-h-[calc(100vh-73px)] items-center justify-center"><Loader2 className="h-10 w-10 animate-spin text-red-700" /></div>;
-  if (!course) return <div className="industrial-page flex min-h-[calc(100vh-73px)] items-center justify-center"><div className="text-center"><p className="font-bold text-slate-800">Course not found.</p><Link to="/admin/dashboard" className="mt-3 inline-block text-sm font-bold text-red-700">Back to dashboard</Link></div></div>;
+  if (!course) return <div className="industrial-page flex min-h-[calc(100vh-73px)] items-center justify-center"><div className="text-center"><p className="font-bold text-slate-800">Course not found.</p><Link to="/admin/dashboard?tab=courses" className="mt-3 inline-block text-sm font-bold text-red-700">Back to courses</Link></div></div>;
 
   return (
-    <div className="industrial-page min-h-[calc(100vh-73px)] px-3 py-6 sm:px-6 sm:py-10 lg:px-10">
-      <div className="mx-auto w-full max-w-[1250px] space-y-6">
-        <div className="flex items-center justify-between">
-          <button onClick={() => navigate("/admin/dashboard")} className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-600 shadow-sm hover:bg-slate-50"><ArrowLeft className="h-4 w-4" /> Back to courses</button>
+    <div className="industrial-page min-h-[calc(100vh-73px)] px-3 py-6 sm:px-6 sm:py-8 lg:px-10">
+      <div className="mx-auto w-full max-w-[1500px] space-y-7">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="mb-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-red-700">Admin portal / Courses / Course details</p>
+            <button onClick={() => navigate("/admin/dashboard?tab=courses")} className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-600 shadow-sm transition hover:border-red-200 hover:bg-red-50 hover:text-red-700"><ArrowLeft className="h-4 w-4" /> Back to courses</button>
+          </div>
           <span className={`rounded-full px-3 py-1 text-xs font-extrabold uppercase ${course.status === "INACTIVE" ? "bg-slate-200 text-slate-600" : "bg-emerald-100 text-emerald-700"}`}>{course.status ?? "ACTIVE"}</span>
         </div>
 
-        <section className="overflow-hidden rounded-[2rem] border border-red-100 bg-white shadow-xl shadow-slate-300/30">
-          <div className="bg-gradient-to-br from-[#741521] via-[#a91f2d] to-[#d04b4a] p-7 text-white sm:p-10">
+        <section className="overflow-hidden rounded-[2rem] border border-red-100 bg-white shadow-2xl shadow-slate-400/20">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#741521] via-[#a91f2d] to-[#d04b4a] p-8 text-white sm:p-12 lg:p-16">
+            <div className="pointer-events-none absolute -right-20 -top-32 h-96 w-96 rounded-full border-[42px] border-white/10" />
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex gap-4">
                 <div className="rounded-2xl bg-white/15 p-3"><BookOpen className="h-8 w-8" /></div>
@@ -169,13 +173,19 @@ const AdminCourseDetails: React.FC = () => {
               {isAdmin && <div className="flex gap-2"><button onClick={() => setEditingCourse(true)} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-red-800 hover:bg-red-50"><Pencil className="h-4 w-4" /> Edit course</button><button onClick={deleteCourse} className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-black/15 px-4 py-2.5 text-sm font-bold text-white hover:bg-black/25"><Trash2 className="h-4 w-4" /> Delete</button></div>}
             </div>
           </div>
-          <div className="p-7 sm:p-10">
-            <p className="mb-2 text-xs font-extrabold uppercase tracking-wider text-slate-400">Course description</p>
-            <p className="max-w-4xl text-base leading-8 text-slate-600">{course.description || "No course description has been added yet."}</p>
+          <div className="grid gap-6 border-t border-slate-100 p-7 sm:p-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
+            <div>
+              <p className="mb-2 text-xs font-extrabold uppercase tracking-wider text-slate-400">Course description</p>
+              <p className="max-w-4xl text-base leading-8 text-slate-600">{course.description || "No course description has been added yet."}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-2xl bg-red-50 p-4"><p className="text-2xl font-black text-red-700">{materials.length}</p><p className="mt-1 text-xs font-bold text-slate-500">Resources</p></div>
+              <div className="rounded-2xl bg-slate-100 p-4"><p className="truncate text-lg font-black text-slate-800">{course.duration || "—"}</p><p className="mt-1 text-xs font-bold text-slate-500">Duration</p></div>
+            </div>
           </div>
         </section>
 
-        <section className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-300/20 sm:p-10">
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-2xl shadow-slate-400/15 sm:p-10 lg:p-12">
           <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><h2 className="text-2xl font-black text-slate-900">Course resources</h2><p className="mt-1 text-sm text-slate-500">Review every file and link assigned to this course.</p></div>{isAdmin && <button onClick={openNewMaterial} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#9f1d2b] px-4 py-3 text-sm font-bold text-white shadow-lg shadow-red-700/15 hover:bg-[#7f1822]"><Plus className="h-4 w-4" /> Add resource</button>}</div>
           {materials.length === 0 ? <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-12 text-center"><FileText className="mx-auto h-10 w-10 text-slate-300" /><p className="mt-3 font-bold text-slate-600">No resources added yet</p><p className="mt-1 text-sm text-slate-400">Add a PDF, document, presentation, or external link.</p></div> : <div className="grid gap-4 lg:grid-cols-2">{materials.map(material => <article key={material.id} className="rounded-2xl border border-slate-200 bg-slate-50/70 p-5 transition hover:border-red-200 hover:bg-red-50/30"><div className="flex items-start justify-between gap-4"><div className="flex min-w-0 gap-3"><div className="rounded-xl bg-white p-2.5 text-red-700 shadow-sm">{material.linkUrl ? <Link2 className="h-5 w-5" /> : <FileText className="h-5 w-5" />}</div><div className="min-w-0"><a href={material.linkUrl || `http://localhost:5000${material.fileUrl}`} target="_blank" rel="noreferrer" className="block truncate font-extrabold text-blue-700 hover:underline">{material.title}</a><p className="mt-1 text-xs text-slate-500">{material.description || material.fileName || (material.linkUrl ? "External link" : "Uploaded file")}</p></div></div>{isAdmin && <div className="flex gap-1"><button onClick={() => openMaterialEditor(material)} className="rounded-lg p-2 text-slate-500 hover:bg-white hover:text-blue-700" aria-label="Edit resource"><Pencil className="h-4 w-4" /></button><button onClick={() => deleteMaterial(material)} className="rounded-lg p-2 text-slate-500 hover:bg-red-100 hover:text-red-700" aria-label="Delete resource"><Trash2 className="h-4 w-4" /></button></div>}</div><a href={material.linkUrl || `http://localhost:5000${material.fileUrl}`} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-red-700 hover:underline">Review resource <CheckCircle2 className="h-3.5 w-3.5" /></a></article>)}</div>}
         </section>
