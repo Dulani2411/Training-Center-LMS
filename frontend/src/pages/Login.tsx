@@ -83,31 +83,33 @@ const Login: React.FC = () => {
 
   return (
     <div className="relative flex min-h-[calc(100vh-73px)] overflow-hidden bg-[#f3e8eb] px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
-      <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-rose-200/70 blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-red-200/70 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 -right-20 h-[28rem] w-[28rem] rounded-full bg-amber-100/60 blur-3xl" />
 
       <div className="relative mx-auto flex w-full max-w-[1440px] flex-1 items-stretch">
-        <div className="grid w-full overflow-hidden rounded-[1.5rem] border border-rose-200/80 bg-[#fff8f8] shadow-2xl shadow-rose-950/15 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid w-full overflow-hidden rounded-[1.5rem] border border-red-200/80 bg-[#fff8f8] shadow-2xl shadow-red-950/15 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Brand panel */}
-          <div className="relative hidden overflow-hidden bg-gradient-to-br from-[#f8dce0] via-[#f5e6e7] to-[#f5e6d5] p-10 lg:flex lg:flex-col lg:justify-between xl:p-14">
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-[36px] border-rose-300/60" />
-            <div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-rose-200/70" />
+          <div className="relative hidden overflow-hidden bg-gradient-to-br from-[#8f1722] via-[#b51f2b] to-[#d4474f] p-10 text-white lg:flex lg:flex-col lg:justify-between xl:p-14">
+            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-[36px] border-white/15" />
+            <div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-black/10" />
             <div className="relative">
               <Link to="/" className="inline-flex items-center gap-3">
-                <img src={logo} alt="CPC Logo" className="h-16 w-16 object-contain" />
+                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-lg shadow-red-950/10">
+                  <img src={logo} alt="CPC Logo" className="h-full w-full object-contain" />
+                </span>
                 <div>
                   <p className="text-sm font-black uppercase tracking-tight text-rose-700">Ceylon Petroleum</p>
-                  <p className="text-xs font-semibold tracking-wide text-slate-500">Corporation Training Center</p>
+                  <p className="text-xs font-semibold tracking-wide text-red-100">Corporation Training Center</p>
                 </div>
               </Link>
               <div className="mt-16 max-w-sm">
-                <span className="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-100/80 px-3 py-1.5 text-xs font-bold text-rose-800 shadow-sm">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1.5 text-xs font-bold text-white shadow-sm">
                   <Sparkles className="h-3.5 w-3.5" /> Learning Management System
                 </span>
-                <h1 className="mt-5 text-4xl font-black leading-tight text-[#3b1720]">
+                <h1 className="mt-5 text-4xl font-black leading-tight text-white">
                   Learn, grow and build your future.
                 </h1>
-                <p className="mt-4 text-sm leading-7 text-[#684b53]">
+                <p className="mt-4 text-sm leading-7 text-red-100">
                   Your central portal for training applications, technical courses and professional development at the CPC Training Center.
                 </p>
               </div>
@@ -118,9 +120,9 @@ const Login: React.FC = () => {
                 { icon: Users, title: "One connected portal", text: "Stay close to your training center" },
                 { icon: ShieldCheck, title: "Secure access", text: "Your learning journey, protected" },
               ].map(item => (
-                <div key={item.title} className="flex items-center gap-3 rounded-2xl border border-rose-200/80 bg-[#fff9f7]/80 p-3.5 shadow-sm">
-                  <div className="rounded-xl bg-rose-200 p-2.5 text-rose-800"><item.icon className="h-4 w-4" /></div>
-                  <div><p className="text-xs font-extrabold text-[#3b1720]">{item.title}</p><p className="mt-0.5 text-[11px] text-[#765d64]">{item.text}</p></div>
+                <div key={item.title} className="flex items-center gap-3 rounded-2xl border border-white/15 bg-black/10 p-3.5 shadow-sm backdrop-blur-sm">
+                  <div className="rounded-xl bg-white/15 p-2.5 text-white"><item.icon className="h-4 w-4" /></div>
+                  <div><p className="text-xs font-extrabold text-white">{item.title}</p><p className="mt-0.5 text-[11px] text-red-100">{item.text}</p></div>
                 </div>
               ))}
             </div>
