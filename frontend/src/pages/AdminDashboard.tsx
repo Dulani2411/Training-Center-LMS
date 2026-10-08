@@ -264,6 +264,14 @@ const AdminDashboard: React.FC = () => {
   );
 
   const handleLogout = () => { logoutAdmin(); navigate("/login"); };
+  const openCourseWorkspace = (courseId: number) => {
+    setSelectedCourseId(courseId);
+    window.setTimeout(() => document.getElementById("course-workspace")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+  };
+  const getPublicCourseCode = (course: Course) => {
+    const match = course.courseName.match(/\bC\d+[A-Z]\d+\b/i);
+    return match?.[0].toUpperCase() ?? null;
+  };
 
   // ─────────────────────────── Sidebar ────────────────────────────
   const NAV_ITEMS: { id: Tab; label: string; icon: React.ReactNode; adminOnly?: boolean }[] = [
@@ -517,18 +525,31 @@ const AdminDashboard: React.FC = () => {
             if (!selectedCourse) return null;
             const courseMaterials = materials.filter(material => material.courseId === selectedCourse.id);
             return (
-              <section className="overflow-hidden rounded-[1.5rem] border border-red-100 bg-white shadow-xl shadow-slate-200/60">
+              <section id="course-workspace" className="scroll-mt-6 overflow-hidden rounded-[1.5rem] border border-red-100 bg-white shadow-xl shadow-slate-200/60">
                 <div className="flex flex-col gap-4 border-b border-slate-100 bg-gradient-to-r from-red-50 to-white p-6 sm:flex-row sm:items-start sm:justify-between">
                   <div>
                     <p className="mb-1 text-[11px] font-extrabold uppercase tracking-wider text-red-700">Course workspace</p>
                     <h3 className="text-2xl font-black text-slate-900">{selectedCourse.courseName}</h3>
                     <p className="mt-1 text-sm text-slate-500">{selectedCourse.duration || "Training programme"} · {courseMaterials.length} resource{courseMaterials.length === 1 ? "" : "s"}</p>
                   </div>
-                  <button onClick={() => setSelectedCourseId(null)} className="self-start rounded-xl border border-slate-200 px-3 py-2 text-xs font-bold text-slate-600 transition hover:bg-slate-50">
-                    Close course
-                  </button>
+                  <div className="flex flex-wrap gap-2">
+                    {getPublicCourseCode(selectedCourse) && (
+                      <button onClick={() => navigate(`/course/${getPublicCourseCode(selectedCourse)}`)} className="inline-flex items-center gap-1.5 rounded-xl bg-[#9f1d2b] px-3 py-2 text-xs font-bold text-white transition hover:bg-[#7f1822]">
+                        <Eye className="h-3.5 w-3.5" /> Open full course
+                      </button>
+                    )}
+                    <button onClick={() => setSelectedCourseId(null)} className="self-start rounded-xl border border-slate-200 px-3 py-2 text-xs font-bold text-slate-600 transition hover:bg-slate-50">
+                      Close course
+                    </button>
+                  </div>
                 </div>
                 <div className="p-6">
+                  {selectedCourse.description && (
+                    <div className="mb-6 rounded-2xl border border-slate-100 bg-slate-50/80 p-4">
+                      <p className="mb-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400">Course description</p>
+                      <p className="text-sm leading-relaxed text-slate-600">{selectedCourse.description}</p>
+                    </div>
+                  )}
                   <div className="mb-4 flex items-center justify-between">
                     <div>
                       <h4 className="font-black text-slate-900">Course resources</h4>
@@ -578,7 +599,7 @@ const AdminDashboard: React.FC = () => {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {courses.map(c => (
-              <div key={c.id} onClick={() => setSelectedCourseId(c.id!)} className="group flex min-h-[285px] cursor-pointer flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-md shadow-slate-200/60 transition duration-300 hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/10">
+              <div key={c.id} onClick={() => openCourseWorkspace(c.id!)} className="group flex min-h-[285px] cursor-pointer flex-col rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-md shadow-slate-200/60 transition duration-300 hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/10">
                 <div className="mb-5 flex items-start justify-between">
                   <div className="rounded-2xl bg-red-50 p-3 ring-1 ring-red-100 transition group-hover:bg-red-100">
                     <BookOpen className="h-6 w-6 text-red-700" />
@@ -590,6 +611,9 @@ const AdminDashboard: React.FC = () => {
                 <h4 className="mb-2 text-lg font-black leading-snug text-slate-900 transition group-hover:text-red-700">{c.courseName}</h4>
                 {c.description && <p className="mb-3 line-clamp-3 text-sm leading-relaxed text-slate-500">{c.description}</p>}
                 {c.duration && <p className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400"><span className="text-red-600">●</span> {c.duration}</p>}
+                <button onClick={(event) => { event.stopPropagation(); openCourseWorkspace(c.id!); }} className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-xl border border-red-100 bg-red-50 px-3 py-2 text-xs font-extrabold text-red-700 transition hover:bg-red-100">
+                  <Eye className="h-3.5 w-3.5" /> Open course workspace
+                </button>
 
                 {/* Materials for this course */}
                 {hasStaffAccess && (
