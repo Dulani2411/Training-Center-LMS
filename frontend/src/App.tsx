@@ -21,6 +21,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import StudentProfile from "./pages/StudentProfile";
 import ChangePasswordFirstLogin from "./pages/ChangePasswordFirstLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminCourseDetails from "./pages/AdminCourseDetails";
 
 const App: React.FC = () => {
   return (
@@ -80,6 +81,14 @@ const App: React.FC = () => {
                 element={
                   <ProtectedAdminRoute>
                     <AdminDashboard />
+                  </ProtectedAdminRoute>
+                }
+              />
+              <Route
+                path="/admin/course/:courseId"
+                element={
+                  <ProtectedAdminRoute>
+                    <AdminCourseDetails />
                   </ProtectedAdminRoute>
                 }
               />
