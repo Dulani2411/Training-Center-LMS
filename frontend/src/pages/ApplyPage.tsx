@@ -484,16 +484,20 @@ const ApplyPage: React.FC = () => {
       <div className="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-amber-100/40 blur-3xl" />
       <div className="relative mx-auto w-full max-w-[1280px] space-y-8">
         {/* Header */}
-        <div className="space-y-3 text-center">
-          <span className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-4 py-1.5 text-xs font-black uppercase tracking-wider text-red-800 shadow-sm">
-            Official Application Portal
-          </span>
-          <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Training & Apprenticeship Application
-          </h1>
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
-            Ceylon Petroleum Corporation Training Center — Sapugaskanda Refinery. Complete all 4 sections carefully.
-          </p>
+        <div className="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#68131d] via-[#a91f2d] to-[#d04b4a] px-6 py-10 text-center text-white shadow-2xl shadow-red-900/25 sm:px-12 sm:py-12 lg:px-20 lg:py-14">
+          <div className="pointer-events-none absolute -right-20 -top-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-40 left-1/3 h-80 w-80 rounded-full bg-rose-300/10 blur-3xl" />
+          <div className="relative z-10 mx-auto max-w-5xl">
+            <span className="mb-4 inline-flex items-center rounded-full border border-white/20 bg-white/15 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-red-50 backdrop-blur-md sm:text-xs">
+              Official Application Portal
+            </span>
+            <h1 className="text-2xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+              Training & Apprenticeship Application
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-red-100 sm:text-base">
+              Ceylon Petroleum Corporation Training Center — Sapugaskanda Refinery. Complete all 4 sections carefully.
+            </p>
+          </div>
         </div>
 
         {/* Success Modal / Card */}
