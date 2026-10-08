@@ -391,7 +391,7 @@ export default function StudentDashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden">
+    <div className="industrial-page flex h-screen overflow-hidden">
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex w-64 flex-shrink-0">
         <SidebarContent />

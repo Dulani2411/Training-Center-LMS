@@ -30,7 +30,7 @@ const CoursesPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_0%_0%,_#fee2e2,_transparent_28%),linear-gradient(180deg,_#fff_0%,_#f8fafc_45%,_#f1f5f9_100%)] px-3 py-6 sm:px-6 sm:py-10 lg:px-10">
+    <div className="industrial-page min-h-screen px-3 py-6 sm:px-6 sm:py-10 lg:px-10">
       <div className="mx-auto w-full max-w-[1500px] space-y-8">
         
         {/* Hero Banner */}

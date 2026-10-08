@@ -479,7 +479,7 @@ const ApplyPage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#17252a] px-3 py-6 sm:px-6 sm:py-10 lg:px-10">
+    <div className="industrial-page relative min-h-screen overflow-hidden px-3 py-6 sm:px-6 sm:py-10 lg:px-10">
       <div className="pointer-events-none absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center opacity-25" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(15,31,38,0.94),rgba(89,29,35,0.86)_52%,rgba(20,43,49,0.92))]" />
       <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-red-700/20 blur-3xl" />

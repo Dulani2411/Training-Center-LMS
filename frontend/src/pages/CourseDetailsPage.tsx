@@ -9,7 +9,7 @@ const CourseDetailsPage: React.FC = () => {
 
   if (!course) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="industrial-page min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Course not found</h2>
           <Link to="/courses" className="text-red-700 hover:underline">
@@ -21,7 +21,7 @@ const CourseDetailsPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(183,28,45,0.12),_transparent_32%),linear-gradient(135deg,_#f3eee9_0%,_#f8f7f5_48%,_#e8eef0_100%)] px-3 py-6 sm:px-6 sm:py-8 lg:px-10">
+    <div className="industrial-page min-h-screen px-3 py-6 sm:px-6 sm:py-8 lg:px-10">
       <div className="mx-auto w-full max-w-[1500px] space-y-8">
         {/* Header Section */}
         <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#761421] via-[#a91f30] to-[#c54a4b] p-7 text-white shadow-2xl shadow-red-950/20 sm:p-12 lg:p-16">

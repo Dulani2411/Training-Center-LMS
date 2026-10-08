@@ -82,7 +82,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="relative flex min-h-[calc(100vh-73px)] overflow-hidden bg-[#f3e8eb] px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
+    <div className="industrial-page relative flex min-h-[calc(100vh-73px)] overflow-hidden px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
       <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-red-200/70 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 -right-20 h-[28rem] w-[28rem] rounded-full bg-amber-100/60 blur-3xl" />
 

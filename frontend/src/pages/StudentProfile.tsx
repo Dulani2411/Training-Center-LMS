@@ -122,11 +122,11 @@ export default function StudentProfile() {
     } finally { setUploading(false); }
   };
 
-  if (loading) return <div className="flex min-h-screen items-center justify-center bg-slate-50"><Loader2 className="h-10 w-10 animate-spin text-red-700" /></div>;
+  if (loading) return <div className="industrial-page flex min-h-screen items-center justify-center"><Loader2 className="h-10 w-10 animate-spin text-red-200" /></div>;
   if (!student) return null;
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_right,_#fee2e2,_transparent_35%),#f8fafc] py-6 sm:py-10">
+    <div className="industrial-page min-h-screen py-6 sm:py-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-6 flex items-center justify-between">
           <Link to="/student/dashboard" className="inline-flex items-center gap-2 text-sm font-bold text-slate-600 transition hover:text-red-700"><ArrowLeft className="h-4 w-4" /> Back to Dashboard</Link>

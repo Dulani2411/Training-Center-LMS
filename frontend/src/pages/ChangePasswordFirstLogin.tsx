@@ -96,7 +96,7 @@ const ChangePasswordFirstLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-600 via-red-700 to-gray-900 flex items-center justify-center py-12 px-4">
+    <div className="industrial-page min-h-screen flex items-center justify-center py-12 px-4">
       {/* Animated Background Circles */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-white opacity-5 rounded-full blur-3xl animate-pulse"></div>
