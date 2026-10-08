@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   BookOpen, LayoutDashboard, LogOut, User, Bell, Award, FolderOpen,
   Download, Loader2, ChevronRight, FileText, BarChart3, Shield, ExternalLink
+  , ArrowLeft, Link2, CheckCircle2
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
@@ -13,7 +14,7 @@ interface Announcement { id?: number; title: string; content: string; courseId?:
 interface Material { id?: number; courseId: number; title: string; description?: string; fileUrl?: string; linkUrl?: string; fileName?: string; fileType?: string; createdAt?: string; }
 interface Mark { id?: number; courseId: number; subject?: string; mark?: number; grade?: string; remarks?: string; courseName?: string; }
 
-type Tab = "dashboard" | "courses" | "announcements" | "marks" | "materials";
+type Tab = "dashboard" | "courses" | "announcements" | "marks";
 
 function formatDate(d?: string) { if (!d) return ""; return new Date(d).toLocaleDateString("en-LK", { year: "numeric", month: "short", day: "numeric" }); }
 
@@ -21,6 +22,7 @@ export default function StudentDashboard() {
   const navigate = useNavigate();
   const { studentData, studentToken, logoutStudent } = useAuth();
   const [activeTab, setActiveTab] = useState<Tab>("dashboard");
+  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [courses, setCourses] = useState<Course[]>([]);
@@ -76,7 +78,6 @@ export default function StudentDashboard() {
     { id: "courses", label: "My Courses", icon: <BookOpen className="w-4 h-4" /> },
     { id: "announcements", label: "Announcements", icon: <Bell className="w-4 h-4" /> },
     { id: "marks", label: "My Marks", icon: <Award className="w-4 h-4" /> },
-    { id: "materials", label: "Materials", icon: <FolderOpen className="w-4 h-4" /> },
   ];
 
   const SidebarContent = () => (
@@ -214,7 +215,42 @@ export default function StudentDashboard() {
         </div>
       );
 
-      case "courses": return (
+      case "courses": {
+        const selectedCourse = activeCourses.find(course => course.id === selectedCourseId);
+        if (selectedCourse) {
+          const courseMaterials = materials.filter(material => material.courseId === selectedCourse.id);
+          return (
+            <div className="space-y-7">
+              <button onClick={() => setSelectedCourseId(null)} className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-600 shadow-sm transition hover:border-red-200 hover:bg-red-50 hover:text-red-700">
+                <ArrowLeft className="h-4 w-4" /> Back to my courses
+              </button>
+              <section className="overflow-hidden rounded-[2rem] border border-red-100 bg-white shadow-2xl shadow-slate-300/30">
+                <div className="relative overflow-hidden bg-gradient-to-br from-[#741521] via-[#a91f2d] to-[#d04b4a] p-7 text-white sm:p-11">
+                  <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full border-[32px] border-white/10" />
+                  <span className="relative inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-red-50"><BookOpen className="h-3.5 w-3.5" /> My learning course</span>
+                  <h1 className="relative mt-5 max-w-4xl text-3xl font-black tracking-tight sm:text-5xl">{selectedCourse.courseName}</h1>
+                  <p className="relative mt-4 max-w-3xl text-sm leading-7 text-red-100 sm:text-base">{selectedCourse.description || "Explore your course information and study resources in one place."}</p>
+                  <div className="relative mt-6 flex flex-wrap gap-3 text-xs font-bold"><span className="rounded-xl bg-white/15 px-4 py-2.5">{selectedCourse.duration || "Training programme"}</span><span className="rounded-xl bg-white/15 px-4 py-2.5">{courseMaterials.length} study resource{courseMaterials.length === 1 ? "" : "s"}</span></div>
+                </div>
+                <div className="grid gap-6 p-6 sm:p-10 lg:grid-cols-[minmax(0,1fr)_280px]">
+                  <div>
+                    <h2 className="text-2xl font-black text-slate-900">Study resources</h2>
+                    <p className="mt-1 text-sm leading-6 text-slate-500">Open your course files and links below to continue learning.</p>
+                    {courseMaterials.length > 0 ? <div className="mt-6 space-y-3">{courseMaterials.map(material => {
+                      const resourceUrl = material.linkUrl || `http://localhost:5000${material.fileUrl}`;
+                      return <article key={material.id} className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition hover:border-red-200 hover:bg-red-50/40">
+                        <div className="flex min-w-0 items-center gap-3"><div className="rounded-xl bg-white p-2.5 text-red-700 shadow-sm">{material.linkUrl ? <Link2 className="h-5 w-5" /> : <FileText className="h-5 w-5" />}</div><div className="min-w-0"><p className="truncate text-sm font-extrabold text-slate-800">{material.title}</p><p className="mt-1 truncate text-xs text-slate-500">{material.description || material.fileName || (material.linkUrl ? "External learning link" : "Course file")}</p><p className="mt-1 text-[11px] font-semibold text-slate-400">{formatDate(material.createdAt)}</p></div></div>
+                        <a href={resourceUrl} target="_blank" rel="noreferrer" className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-xl bg-[#9f1d2b] px-3 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-[#7f1822]">{material.linkUrl ? <ExternalLink className="h-3.5 w-3.5" /> : <Download className="h-3.5 w-3.5" />} Open</a>
+                      </article>;
+                    })}</div> : <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center"><FolderOpen className="mx-auto h-9 w-9 text-slate-300" /><p className="mt-3 font-bold text-slate-600">No resources available yet</p><p className="mt-1 text-sm text-slate-400">Your training center will add study material here.</p></div>}
+                  </div>
+                  <aside className="h-fit rounded-2xl border border-red-100 bg-red-50/70 p-5"><CheckCircle2 className="h-7 w-7 text-red-700" /><h3 className="mt-3 font-black text-slate-900">Ready to study?</h3><p className="mt-2 text-sm leading-6 text-slate-600">Review each resource carefully and keep up with your course learning.</p><div className="mt-5 rounded-xl bg-white p-3 text-center"><p className="text-2xl font-black text-red-700">{courseMaterials.length}</p><p className="text-xs font-bold text-slate-500">Available resources</p></div></aside>
+                </div>
+              </section>
+            </div>
+          );
+        }
+        return (
         <div className="space-y-6">
           <div>
             <h2 className="text-2xl font-extrabold text-gray-900">My Courses</h2>
@@ -222,19 +258,16 @@ export default function StudentDashboard() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {activeCourses.map(c => (
-              <div key={c.id} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all">
+              <div key={c.id} onClick={() => setSelectedCourseId(c.id ?? null)} className="group cursor-pointer rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-md shadow-slate-200/60 transition-all hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/10">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="p-2.5 bg-red-50 rounded-xl">
-                    <BookOpen className="w-5 h-5 text-red-700" />
+                  <div className="rounded-2xl bg-red-50 p-3 ring-1 ring-red-100">
+                    <BookOpen className="h-6 w-6 text-red-700" />
                   </div>
                   <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded-full text-xs font-semibold">Active</span>
                 </div>
-                <h4 className="font-bold text-gray-800 mb-1">{c.courseName}</h4>
-                {c.description && <p className="text-xs text-gray-500 line-clamp-2 mb-2">{c.description}</p>}
-                {c.duration && <p className="text-xs text-gray-400">⏱ {c.duration}</p>}
-                <button onClick={() => { setActiveTab("materials"); }} className="mt-3 w-full flex items-center justify-center gap-1.5 py-2 rounded-xl bg-red-50 text-red-700 text-xs font-semibold hover:bg-red-100 transition-colors">
-                  <FolderOpen className="w-3.5 h-3.5" /> View Materials
-                </button>
+                <h4 className="mb-2 text-lg font-black leading-snug text-slate-900 group-hover:text-red-700">{c.courseName}</h4>
+                {c.description && <p className="mb-3 line-clamp-3 text-sm leading-relaxed text-slate-500">{c.description}</p>}
+                <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-bold text-slate-400"><span>{c.duration || "Training programme"}</span><span className="text-red-700">View course <ChevronRight className="inline h-4 w-4" /></span></div>
               </div>
             ))}
             {activeCourses.length === 0 && (
@@ -245,7 +278,8 @@ export default function StudentDashboard() {
             )}
           </div>
         </div>
-      );
+        );
+      }
 
       case "announcements": return (
         <div className="space-y-6">
@@ -330,59 +364,6 @@ export default function StudentDashboard() {
               </div>
             )}
           </div>
-        </div>
-      );
-
-      case "materials": return (
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-2xl font-extrabold text-gray-900">Course Materials</h2>
-            <p className="text-gray-500 text-sm mt-1">Download study resources and files</p>
-          </div>
-          {activeCourses.map(course => {
-            const courseMats = materials.filter(m => m.courseId === course.id);
-            if (courseMats.length === 0) return null;
-            return (
-              <div key={course.id} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-red-600" /> {course.courseName}
-                </h3>
-                <div className="space-y-2">
-                  {courseMats.map(mat => (
-                    <div key={mat.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-xs font-black ${
-                          mat.fileType === "pdf" ? "bg-red-100 text-red-700" :
-                          mat.fileType === "word" ? "bg-blue-100 text-blue-700" :
-                          mat.fileType === "ppt" ? "bg-orange-100 text-orange-700" :
-                          "bg-gray-100 text-gray-700"
-                        }`}>
-                          {mat.fileType?.toUpperCase() ?? "FILE"}
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-sm font-semibold text-gray-800 truncate">{mat.title}</p>
-                          {mat.description && <p className="text-xs text-gray-500 truncate">{mat.description}</p>}
-                          <p className="text-xs text-gray-400">{formatDate(mat.createdAt)}</p>
-                        </div>
-                      </div>
-                      {(mat.fileUrl || mat.linkUrl) && (
-                        <a href={mat.linkUrl || `http://localhost:5000${mat.fileUrl}`} target="_blank" rel="noreferrer"
-                          className="ml-3 p-2 rounded-xl bg-red-50 text-red-700 hover:bg-red-100 transition-colors flex-shrink-0">
-                          {mat.linkUrl ? <ExternalLink className="w-4 h-4" /> : <Download className="w-4 h-4" />}
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-          {materials.length === 0 && (
-            <div className="bg-white rounded-2xl p-12 text-center text-gray-400 shadow-sm border border-gray-100">
-              <FolderOpen className="w-12 h-12 mx-auto mb-3 opacity-30" />
-              No materials available yet.
-            </div>
-          )}
         </div>
       );
 
