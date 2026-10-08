@@ -81,43 +81,43 @@ export default function StudentDashboard() {
   ];
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-white border-r border-gray-100">
+    <div className="flex h-full flex-col bg-gray-900 border-r border-gray-800">
       {/* Header */}
-      <div className="px-5 py-5 border-b border-gray-100 flex items-center gap-3">
-        <div className="w-9 h-9 bg-red-600 rounded-xl flex items-center justify-center">
+      <div className="flex items-center gap-3 border-b border-gray-800 px-5 py-5">
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-red-600">
           <BookOpen className="w-5 h-5 text-white" />
         </div>
         <div>
-          <p className="font-bold text-gray-900 text-sm">Student Portal</p>
-          <p className="text-gray-400 text-xs">CPC Training LMS</p>
+          <p className="text-sm font-bold text-white">Student Portal</p>
+          <p className="text-xs text-gray-400">CPC Training LMS</p>
         </div>
       </div>
 
       {/* Student info */}
       {studentData && (
-        <div className="mx-3 my-3 p-3 bg-red-50 rounded-2xl border border-red-100">
+        <div className="mx-3 my-4 rounded-xl border border-gray-800 bg-gray-800 p-3">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-red-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-red-700 text-sm font-bold text-white">
               {studentData.name?.[0]?.toUpperCase() ?? "S"}
             </div>
             <div className="min-w-0">
-              <p className="font-bold text-red-900 text-sm truncate">{studentData.name ?? "Student"}</p>
-              {studentData.studentId && <p className="text-xs text-red-700">{studentData.studentId}</p>}
+              <p className="truncate text-sm font-semibold text-white">{studentData.name ?? "Student"}</p>
+              {studentData.studentId && <p className="text-xs text-gray-400">{studentData.studentId}</p>}
             </div>
           </div>
         </div>
       )}
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-2 space-y-1">
+      <nav className="flex-1 space-y-1 px-3 py-2">
         {NAV.map(item => (
           <button
             key={item.id}
             onClick={() => { setActiveTab(item.id); setSidebarOpen(false); }}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
               activeTab === item.id
-                ? "bg-red-600 text-white shadow-sm"
-                : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                ? "bg-red-600 text-white shadow-lg shadow-red-950/20"
+                : "text-gray-400 hover:bg-gray-800 hover:text-white"
             }`}
           >
             {item.icon} {item.label}
@@ -125,11 +125,11 @@ export default function StudentDashboard() {
         ))}
       </nav>
 
-      <div className="p-3 border-t border-gray-100 space-y-1">
-        <Link to="/student/profile" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all">
+      <div className="space-y-1 border-t border-gray-800 p-3">
+        <Link to="/student/profile" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-gray-400 transition-all hover:bg-gray-800 hover:text-white">
           <User className="w-4 h-4" /> My Profile
         </Link>
-        <button onClick={handleLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:text-red-600 hover:bg-red-50 transition-all">
+        <button onClick={handleLogout} className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-gray-400 transition-all hover:bg-gray-800 hover:text-red-400">
           <LogOut className="w-4 h-4" /> Sign Out
         </button>
       </div>
