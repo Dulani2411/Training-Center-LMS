@@ -6,6 +6,7 @@ import {
   , ArrowLeft, Link2, CheckCircle2
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import { RichTextContent } from "../components/RichTextEditor";
 
 const API = "http://localhost:5000/api";
 
@@ -229,7 +230,7 @@ export default function StudentDashboard() {
                   <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full border-[32px] border-white/10" />
                   <span className="relative inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-red-50"><BookOpen className="h-3.5 w-3.5" /> My learning course</span>
                   <h1 className="relative mt-5 max-w-4xl text-3xl font-black tracking-tight sm:text-5xl">{selectedCourse.courseName}</h1>
-                  <p className="relative mt-4 max-w-3xl text-sm leading-7 text-red-100 sm:text-base">{selectedCourse.description || "Explore your course information and study resources in one place."}</p>
+                  <div className="relative mt-4 max-w-3xl text-sm leading-7 text-red-100 sm:text-base">{selectedCourse.description ? <RichTextContent value={selectedCourse.description} /> : "Explore your course information and study resources in one place."}</div>
                   <div className="relative mt-6 flex flex-wrap gap-3 text-xs font-bold"><span className="rounded-xl bg-white/15 px-4 py-2.5">{selectedCourse.duration || "Training programme"}</span><span className="rounded-xl bg-white/15 px-4 py-2.5">{courseMaterials.length} study resource{courseMaterials.length === 1 ? "" : "s"}</span></div>
                 </div>
                 <div className="grid gap-6 p-6 sm:p-10 lg:grid-cols-[minmax(0,1fr)_280px]">
@@ -239,7 +240,7 @@ export default function StudentDashboard() {
                     {courseMaterials.length > 0 ? <div className="mt-6 space-y-3">{courseMaterials.map(material => {
                       const resourceUrl = material.linkUrl || `http://localhost:5000${material.fileUrl}`;
                       return <article key={material.id} className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition hover:border-red-200 hover:bg-red-50/40">
-                        <div className="flex min-w-0 items-center gap-3"><div className="rounded-xl bg-white p-2.5 text-red-700 shadow-sm">{material.linkUrl ? <Link2 className="h-5 w-5" /> : <FileText className="h-5 w-5" />}</div><div className="min-w-0"><p className="truncate text-sm font-extrabold text-slate-800">{material.title}</p><p className="mt-1 truncate text-xs text-slate-500">{material.description || material.fileName || (material.linkUrl ? "External learning link" : "Course file")}</p><p className="mt-1 text-[11px] font-semibold text-slate-400">{formatDate(material.createdAt)}</p></div></div>
+                        <div className="flex min-w-0 items-center gap-3"><div className="rounded-xl bg-white p-2.5 text-red-700 shadow-sm">{material.linkUrl ? <Link2 className="h-5 w-5" /> : <FileText className="h-5 w-5" />}</div><div className="min-w-0"><p className="truncate text-sm font-extrabold text-slate-800">{material.title}</p>{material.description ? <RichTextContent value={material.description} className="mt-1 line-clamp-2 text-xs text-slate-500" /> : <p className="mt-1 truncate text-xs text-slate-500">{material.fileName || (material.linkUrl ? "External learning link" : "Course file")}</p>}<p className="mt-1 text-[11px] font-semibold text-slate-400">{formatDate(material.createdAt)}</p></div></div>
                         <a href={resourceUrl} target="_blank" rel="noreferrer" className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-xl bg-[#9f1d2b] px-3 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-[#7f1822]">{material.linkUrl ? <ExternalLink className="h-3.5 w-3.5" /> : <Download className="h-3.5 w-3.5" />} Open</a>
                       </article>;
                     })}</div> : <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center"><FolderOpen className="mx-auto h-9 w-9 text-slate-300" /><p className="mt-3 font-bold text-slate-600">No resources available yet</p><p className="mt-1 text-sm text-slate-400">Your training center will add study material here.</p></div>}
