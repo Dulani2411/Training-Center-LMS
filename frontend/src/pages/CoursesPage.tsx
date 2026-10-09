@@ -30,9 +30,9 @@ const CoursesPage: React.FC = () => {
   );
 
   return (
-    <div className="relative min-h-[calc(100vh-73px)] overflow-hidden bg-[radial-gradient(circle_at_0%_0%,_rgba(183,28,45,0.15),_transparent_32%),radial-gradient(circle_at_100%_100%,_rgba(214,158,76,0.14),_transparent_28%),linear-gradient(135deg,_#f1e9e4_0%,_#f8f7f5_48%,_#e8eef0_100%)] px-3 py-7 sm:px-6 sm:py-10 lg:px-10">
-      <div className="pointer-events-none absolute -left-32 top-28 h-80 w-80 rounded-full bg-red-200/30 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 right-0 h-[28rem] w-[28rem] rounded-full bg-amber-100/40 blur-3xl" />
+    <div className="public-industrial-page relative min-h-[calc(100vh-73px)] overflow-hidden px-3 py-7 sm:px-6 sm:py-10 lg:px-10">
+      <div className="pointer-events-none absolute -left-32 top-28 h-80 w-80 rounded-full bg-red-500/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 right-0 h-[28rem] w-[28rem] rounded-full bg-amber-300/10 blur-3xl" />
       <div className="relative mx-auto w-full max-w-[1500px] space-y-8">
         
         {/* Hero Banner */}
