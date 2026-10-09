@@ -43,7 +43,7 @@ const Home: React.FC = () => {
       >
         {/* Background Image with Zoom Effect */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10000ms] ease-linear scale-110"
+          className="absolute inset-0 scale-110 bg-cover bg-center bg-no-repeat brightness-110 transition-transform duration-[10000ms] ease-linear"
           style={{ 
             backgroundImage: `url('/bg.jpg')`,
             transform: `scale(${1.1 + (currentSlide * 0.02)})` 
@@ -51,8 +51,8 @@ const Home: React.FC = () => {
         ></div>
         
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/80"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/25 to-black/45"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex flex-col items-center sm:items-start text-center sm:text-left mt-20">
           
