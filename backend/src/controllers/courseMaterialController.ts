@@ -65,8 +65,8 @@ export const addMaterial = async (req: Request, res: Response) => {
   try {
     await ensureCourseMaterialsTable();
     const { courseId, title, description, linkUrl, uploadedBy } = req.body;
-    if (!courseId || !title || (!req.file && !linkUrl)) {
-      return res.status(400).json({ message: "courseId, title, and a file or link are required." });
+    if (!courseId || !title) {
+      return res.status(400).json({ message: "courseId and title are required." });
     }
 
     let fileUrl: string | undefined;
