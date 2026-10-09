@@ -123,7 +123,8 @@ export const editMaterial = async (req: Request, res: Response) => {
       update.fileType = fileType;
       update.linkUrl = linkUrl;
     }
-    await updateMaterial(id, update);
+    const updated = await updateMaterial(id, update);
+    if (!updated) return res.status(404).json({ message: "Material could not be updated." });
     return res.status(200).json({ message: "Updated." });
   } catch (err) {
     console.error("❌ editMaterial error:", err);

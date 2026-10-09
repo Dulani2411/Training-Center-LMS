@@ -136,7 +136,17 @@ const AdminCourseDetails: React.FC = () => {
       response = await fetch(`${API}/materials`, { method: "POST", body: form });
     }
     setSaving(false);
-    if (!response.ok) return showNotice(editingMaterial ? "Resource update failed." : "Resource add failed.", true);
+    if (!response.ok) {
+      let message = editingMaterial ? "Resource update failed." : "Resource add failed.";
+      try {
+        const data = await response.json() as { message?: string };
+        if (data.message) message = data.message;
+      } catch {
+        // Keep the user-facing fallback when the API does not return JSON.
+      }
+      setSaving(false);
+      return showNotice(message, true);
+    }
     showNotice(editingMaterial ? "Resource updated successfully." : "Resource added successfully.");
     setShowMaterialForm(false);
     setEditingMaterial(null);
