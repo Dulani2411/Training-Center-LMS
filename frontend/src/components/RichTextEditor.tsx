@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Bold, Highlighter, Italic, Palette, Underline } from "lucide-react";
+import { Bold, Eraser, Highlighter, Italic, Palette, Redo2, Undo2, Underline } from "lucide-react";
 
 const ALLOWED_TAGS = new Set([
   "P", "DIV", "BR", "STRONG", "B", "EM", "I", "U", "MARK", "SPAN",
@@ -99,6 +99,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         <span className="mx-1 h-5 w-px bg-slate-200" />
         <button type="button" onMouseDown={event => event.preventDefault()} onClick={() => format("hiliteColor", "#fff2a8")} className="rounded-lg p-2 text-amber-600 hover:bg-white" title="Highlight" aria-label="Highlight"><Highlighter className="h-4 w-4" /></button>
         <button type="button" onMouseDown={event => event.preventDefault()} onClick={() => format("foreColor", "#b91c1c")} className="rounded-lg p-2 text-red-700 hover:bg-white" title="Red text" aria-label="Red text"><Palette className="h-4 w-4" /></button>
+        <button type="button" onMouseDown={event => event.preventDefault()} onClick={() => format("foreColor", "#111827")} className="rounded-lg p-2 text-slate-700 hover:bg-white" title="Black text" aria-label="Black text">A</button>
+        <button type="button" onMouseDown={event => event.preventDefault()} onClick={() => format("hiliteColor", "transparent")} className="rounded-lg p-2 text-slate-600 hover:bg-white" title="Remove highlight" aria-label="Remove highlight"><Eraser className="h-4 w-4" /></button>
+        <span className="mx-1 h-5 w-px bg-slate-200" />
+        <button type="button" onMouseDown={event => event.preventDefault()} onClick={() => format("undo")} className="rounded-lg p-2 text-slate-600 hover:bg-white hover:text-red-700" title="Undo" aria-label="Undo"><Undo2 className="h-4 w-4" /></button>
+        <button type="button" onMouseDown={event => event.preventDefault()} onClick={() => format("redo")} className="rounded-lg p-2 text-slate-600 hover:bg-white hover:text-red-700" title="Redo" aria-label="Redo"><Redo2 className="h-4 w-4" /></button>
+        <button type="button" onMouseDown={event => event.preventDefault()} onClick={() => format("removeFormat")} className="rounded-lg p-2 text-slate-600 hover:bg-white hover:text-red-700" title="Clear formatting" aria-label="Clear formatting"><Eraser className="h-4 w-4" /></button>
         <select defaultValue="" onChange={event => { format("fontSize", event.target.value); event.target.value = ""; }} className="ml-1 rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs font-semibold text-slate-600" aria-label="Font size">
           <option value="" disabled>Font size</option>
           <option value="2">Small</option>

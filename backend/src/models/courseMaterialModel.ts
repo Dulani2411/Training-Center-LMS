@@ -42,6 +42,14 @@ export const getMaterialsByCourse = async (courseId: number): Promise<CourseMate
   return result.recordset as CourseMaterial[];
 };
 
+export const getMaterialById = async (id: number): Promise<CourseMaterial | null> => {
+  const pool = getPool();
+  const result = await pool.request()
+    .input("id", sql.Int, id)
+    .query("SELECT * FROM [dbo].[CourseMaterials] WHERE id = @id");
+  return result.recordset[0] ? result.recordset[0] as CourseMaterial : null;
+};
+
 export const getAllMaterials = async (): Promise<CourseMaterial[]> => {
   const pool = getPool();
   const result = await pool.request()
@@ -70,16 +78,32 @@ export const createMaterial = async (m: CourseMaterial): Promise<CourseMaterial>
 
 export const updateMaterial = async (id: number, m: Partial<CourseMaterial>): Promise<boolean> => {
   const pool = getPool();
-  const result = await pool.request()
-    .input("id", sql.Int, id)
-    .input("title", sql.NVarChar(255), m.title ?? null)
-    .input("description", sql.NVarChar(sql.MAX), m.description ?? null)
-    .query(`
-      UPDATE [dbo].[CourseMaterials]
-      SET title = ISNULL(@title, title),
-          description = ISNULL(@description, description)
-      WHERE id = @id
-    `);
+  const request = pool.request().input("id", sql.Int, id);
+  const setClauses: string[] = [];
+  if (m.title !== undefined) {
+    request.input("title", sql.NVarChar(255), m.title);
+    setClauses.push("title = @title");
+  }
+  if (m.description !== undefined) {
+    request.input("description", sql.NVarChar(sql.MAX), m.description);
+    setClauses.push("description = @description");
+  }
+  if (m.linkUrl !== undefined) {
+    request.input("linkUrl", sql.NVarChar(1000), m.linkUrl || null);
+    setClauses.push("linkUrl = @linkUrl");
+  }
+  if (m.fileUrl !== undefined) {
+    request.input("fileUrl", sql.NVarChar(500), m.fileUrl || null);
+    request.input("fileName", sql.NVarChar(255), m.fileName || null);
+    request.input("fileType", sql.NVarChar(50), m.fileType || null);
+    setClauses.push("fileUrl = @fileUrl", "fileName = @fileName", "fileType = @fileType");
+  }
+  if (setClauses.length === 0) return false;
+  const result = await request.query(`
+    UPDATE [dbo].[CourseMaterials]
+    SET ${setClauses.join(", ")}
+    WHERE id = @id
+  `);
   return (result.rowsAffected?.[0] ?? 0) > 0;
 };
 

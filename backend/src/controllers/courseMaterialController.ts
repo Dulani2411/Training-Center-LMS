@@ -4,6 +4,7 @@ import fs from "fs";
 import {
   getMaterialsByCourse,
   getAllMaterials,
+  getMaterialById,
   createMaterial,
   updateMaterial,
   deleteMaterial,
@@ -104,8 +105,25 @@ export const editMaterial = async (req: Request, res: Response) => {
   try {
     const id = parseInt(req.params.id ?? "");
     if (isNaN(id)) return res.status(400).json({ message: "Invalid ID." });
-    const { title, description } = req.body;
-    await updateMaterial(id, { title, description });
+    const existing = await getMaterialById(id);
+    if (!existing) return res.status(404).json({ message: "Material not found." });
+    const { title, description, linkUrl } = req.body;
+    const update: Parameters<typeof updateMaterial>[1] = { title, description, linkUrl };
+    if (req.file) {
+      const mime = req.file.mimetype;
+      const fileType = mime === "application/pdf"
+        ? "pdf"
+        : mime.includes("word")
+          ? "word"
+          : mime.includes("presentation") || mime.includes("powerpoint")
+            ? "ppt"
+            : "other";
+      update.fileUrl = `/uploads/materials/${req.file.filename}`;
+      update.fileName = req.file.originalname;
+      update.fileType = fileType;
+      update.linkUrl = linkUrl;
+    }
+    await updateMaterial(id, update);
     return res.status(200).json({ message: "Updated." });
   } catch (err) {
     console.error("❌ editMaterial error:", err);
